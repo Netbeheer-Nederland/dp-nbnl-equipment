@@ -34,95 +34,10 @@
 
 
 
-.Associated classes
-[d2,svg,theme=4]
-----
-vars: {
-  d2-config: {
-    pad: 20
-  }
-}
-EquipmentContainer {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-ConnectivityNode {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-
-EquipmentContainer -> ConnectivityNode: ConnectivityNodes
-
-
-legend: "" {
-  style: {
-    fill: transparent
-    stroke: transparent
-  }
-  grid-rows: 3
-  grid-columns: 2
-  grid-gap: 10
-  near: bottom-right
-  iec61968_color: "" {
-    style: {
-      fill: "#d1e7c2"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec61968_text: "IEC61968 (Enterprise)" {
-    shape: text
-  }
-  iec61970_color: "" {
-    style: {
-      fill: "#eccfcb"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec61970_text: "IEC61970 (Grid)" {
-    shape: text
-  }
-  iec62325_color: "" {
-    style: {
-      fill: "#fffbef"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec62325_text: "IEC62325 (Market)" {
-    shape: text
-  }
-}
-----
-
 
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
-
-| <<ConnectivityNodes,`ConnectivityNodes`>>
-//| [[slots_table.ConnectivityNodes]]<<ConnectivityNodes,`ConnectivityNodes`>>
-| 0..* +
-xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-| +++Connectivity nodes which belong to this connectivity node container.+++
-| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
 
 | <<description,`description`>>
 //| [[slots_table.description]]<<description,`description`>>
@@ -133,7 +48,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -147,35 +62,6 @@ https://w3id.org/linkml/String[`string`]
 |===
 
 '''
-
-
-//[discrete]
-[#ConnectivityNodes]
-=== `ConnectivityNodes`
-+++Connectivity nodes which belong to this connectivity node container.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:ConnectivityNodeContainer.ConnectivityNodes`
-| Cardinality
-| 0..*
-| Type
-| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-
-| Inherited from
-| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.ConnectivityNodes,&#10548;>>
---
-////
 
 
 //[discrete]
@@ -219,7 +105,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

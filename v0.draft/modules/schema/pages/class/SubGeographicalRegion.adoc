@@ -18,6 +18,23 @@
 | IEC61970 (Grid)
 
 
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#narrowMatch[`skos:narrowMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/energienet[`nbnl:energienet`]
+
+
+
+!===
+
+
 
 |===
 
@@ -47,15 +64,6 @@ SubGeographicalRegion {
 
 
 
-Substation {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
 GeographicalRegion {
   style {
     fill: "#eccfcb"
@@ -64,9 +72,6 @@ GeographicalRegion {
 }
 
 
-
-
-SubGeographicalRegion -> Substation: Substations
 
 
 SubGeographicalRegion -> GeographicalRegion: Region
@@ -127,16 +132,9 @@ legend: "" {
 
 | <<Region,`Region`>>
 //| [[slots_table.Region]]<<Region,`Region`>>
-| 0..1 +
+| 1 +
 xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
 | +++The geographical region which this sub-geographical region is within.+++
-| _n/a_
-
-| <<Substations,`Substations`>>
-//| [[slots_table.Substations]]<<Substations,`Substations`>>
-| 0..* +
-xref::class/Substation.adoc[`Substation`]
-| +++The substations in this sub-geographical region.+++
 | _n/a_
 
 | <<description,`description`>>
@@ -148,7 +146,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -205,7 +203,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -263,7 +261,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:SubGeographicalRegion.Region`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
 
@@ -278,32 +276,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 ////
 
 
-//[discrete]
-[#Substations]
-=== `Substations`
-+++The substations in this sub-geographical region.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:SubGeographicalRegion.Substations`
-| Cardinality
-| 0..*
-| Type
-| xref::class/Substation.adoc[`Substation`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Substations,&#10548;>>
---
-////
-
-
 
 
 
@@ -313,10 +285,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [cols="1,1",width=65%]
 |===
 | Source class | Slot name
-
-
-
-| xref::class/GeographicalRegion.adoc[`GeographicalRegion`] | xref::class/GeographicalRegion.adoc#Regions[`Regions`]
 
 
 

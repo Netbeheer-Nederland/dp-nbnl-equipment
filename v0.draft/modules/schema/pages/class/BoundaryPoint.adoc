@@ -15,6 +15,23 @@
 
 
 
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/overdrachtspunt[`nbnl:overdrachtspunt`]
+
+
+
+!===
+
+
 
 |===
 
@@ -28,138 +45,44 @@
 
 
 
-.Associated classes
-[d2,svg,theme=4]
-----
-vars: {
-  d2-config: {
-    pad: 20
-  }
-}
-BoundaryPoint {
-  style {
-    fill: "#cccccc"
-    shadow: true
-  }
-}
-
-
-
-ConnectivityNode {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-
-BoundaryPoint -> ConnectivityNode: ConnectivityNode
-
-
-legend: "" {
-  style: {
-    fill: transparent
-    stroke: transparent
-  }
-  grid-rows: 3
-  grid-columns: 2
-  grid-gap: 10
-  near: bottom-right
-  iec61968_color: "" {
-    style: {
-      fill: "#d1e7c2"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec61968_text: "IEC61968 (Enterprise)" {
-    shape: text
-  }
-  iec61970_color: "" {
-    style: {
-      fill: "#eccfcb"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec61970_text: "IEC61970 (Grid)" {
-    shape: text
-  }
-  iec62325_color: "" {
-    style: {
-      fill: "#fffbef"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec62325_text: "IEC62325 (Market)" {
-    shape: text
-  }
-}
-----
-
 
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
 
-| <<ConnectivityNode,`ConnectivityNode`>>
-//| [[slots_table.ConnectivityNode]]<<ConnectivityNode,`ConnectivityNode`>>
-| 0..1 +
-xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-| +++The connectivity node that is designated as a boundary point.+++
+| <<european_article_number_ean,`european_article_number_ean`>>
+//| [[slots_table.european_article_number_ean]]<<european_article_number_ean,`european_article_number_ean`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters...+++
 | _n/a_
 
 | <<fromEndIsoCode,`fromEndIsoCode`>>
 //| [[slots_table.fromEndIsoCode]]<<fromEndIsoCode,`fromEndIsoCode`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The ISO code of the region which the "From" side of the Boundary point belongs to or it is connected to.
 The ISO code is a...+++
 | _n/a_
 
-| <<fromEndName,`fromEndName`>>
-//| [[slots_table.fromEndName]]<<fromEndName,`fromEndName`>>
-| 0..1 +
-https://w3id.org/linkml/String[`string`]
-| +++A human readable name with length of the string 64 characters maximum. It covers the following two cases:
--if the Boundary...+++
-| _n/a_
-
 | <<fromEndNameTso,`fromEndNameTso`>>
 //| [[slots_table.fromEndNameTso]]<<fromEndNameTso,`fromEndNameTso`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "From"...+++
 | _n/a_
 
 | <<toEndIsoCode,`toEndIsoCode`>>
 //| [[slots_table.toEndIsoCode]]<<toEndIsoCode,`toEndIsoCode`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The ISO code of the region which the "To" side of the Boundary point belongs to or is connected to.
 The ISO code is a...+++
 | _n/a_
 
-| <<toEndName,`toEndName`>>
-//| [[slots_table.toEndName]]<<toEndName,`toEndName`>>
-| 0..1 +
-https://w3id.org/linkml/String[`string`]
-| +++A human readable name with length of the string 64 characters maximum. It covers the following two cases:
--if the Boundary...+++
-| _n/a_
-
 | <<toEndNameTso,`toEndNameTso`>>
 //| [[slots_table.toEndNameTso]]<<toEndNameTso,`toEndNameTso`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "To" side...+++
 | _n/a_
@@ -173,7 +96,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -187,32 +110,6 @@ https://w3id.org/linkml/String[`string`]
 |===
 
 '''
-
-
-//[discrete]
-[#ConnectivityNode]
-=== `ConnectivityNode`
-+++The connectivity node that is designated as a boundary point.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| https://cim.ucaiug.io/ns/eu#BoundaryPoint.ConnectivityNode[`eu:BoundaryPoint.ConnectivityNode`]
-| Cardinality
-| 0..1
-| Type
-| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.ConnectivityNode,&#10548;>>
---
-////
 
 
 //[discrete]
@@ -245,6 +142,32 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
+[#european_article_number_ean]
+=== `european_article_number_ean`
++++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://cim.ucaiug.io/ns/nl#IdentifiedObject.europeanArticleNumberEAN[`nl:IdentifiedObject.europeanArticleNumberEAN`]
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.european_article_number_ean,&#10548;>>
+--
+////
+
+
+//[discrete]
 [#fromEndIsoCode]
 === `fromEndIsoCode`
 +++The ISO code of the region which the "From" side of the Boundary point belongs to or it is connected to.
@@ -256,7 +179,7 @@ The ISO code is a two-character country code as defined by ISO 3166 (http://www.
 | URI
 | https://cim.ucaiug.io/ns/eu#BoundaryPoint.fromEndIsoCode[`eu:BoundaryPoint.fromEndIsoCode`]
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -272,34 +195,6 @@ The ISO code is a two-character country code as defined by ISO 3166 (http://www.
 
 
 //[discrete]
-[#fromEndName]
-=== `fromEndName`
-+++A human readable name with length of the string 64 characters maximum. It covers the following two cases:
--if the Boundary point is placed on a tie-line, it is the name (IdentifiedObject.name) of the substation at which the "From" side of the tie-line is connected to.
--if the Boundary point is placed in a substation, it is the name (IdentifiedObject.name) of the element (e.g. PowerTransformer, ACLineSegment, Switch, etc.) at which the "From" side of the Boundary point is connected to.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| https://cim.ucaiug.io/ns/eu#BoundaryPoint.fromEndName[`eu:BoundaryPoint.fromEndName`]
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/String[`string`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.fromEndName,&#10548;>>
---
-////
-
-
-//[discrete]
 [#fromEndNameTso]
 === `fromEndNameTso`
 +++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "From" side of the interconnection is connected to. The length of the string is 64 characters maximum.+++
@@ -310,7 +205,7 @@ The ISO code is a two-character country code as defined by ISO 3166 (http://www.
 | URI
 | https://cim.ucaiug.io/ns/eu#BoundaryPoint.fromEndNameTso[`eu:BoundaryPoint.fromEndNameTso`]
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -337,7 +232,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -396,7 +291,7 @@ The ISO code is a two-character country code as defined by ISO 3166 (http://www.
 | URI
 | https://cim.ucaiug.io/ns/eu#BoundaryPoint.toEndIsoCode[`eu:BoundaryPoint.toEndIsoCode`]
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -412,34 +307,6 @@ The ISO code is a two-character country code as defined by ISO 3166 (http://www.
 
 
 //[discrete]
-[#toEndName]
-=== `toEndName`
-+++A human readable name with length of the string 64 characters maximum. It covers the following two cases:
--if the Boundary point is placed on a tie-line, it is the name (IdentifiedObject.name) of the substation at which the "To" side of the tie-line is connected to.
--if the Boundary point is placed in a substation, it is the name (IdentifiedObject.name) of the element (e.g. PowerTransformer, ACLineSegment, Switch, etc.) at which the "To" side of the Boundary point is connected to.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| https://cim.ucaiug.io/ns/eu#BoundaryPoint.toEndName[`eu:BoundaryPoint.toEndName`]
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/String[`string`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.toEndName,&#10548;>>
---
-////
-
-
-//[discrete]
 [#toEndNameTso]
 === `toEndNameTso`
 +++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "To" side of the interconnection is connected to. The length of the string is 64 characters maximum.+++
@@ -450,7 +317,7 @@ The ISO code is a two-character country code as defined by ISO 3166 (http://www.
 | URI
 | https://cim.ucaiug.io/ns/eu#BoundaryPoint.toEndNameTso[`eu:BoundaryPoint.toEndNameTso`]
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

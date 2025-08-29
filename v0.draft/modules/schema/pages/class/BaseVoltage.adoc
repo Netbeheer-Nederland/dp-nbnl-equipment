@@ -18,6 +18,23 @@
 | IEC61970 (Grid)
 
 
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/spanningsniveau[`nbnl:spanningsniveau`]
+
+
+
+!===
+
+
 
 |===
 
@@ -49,18 +66,6 @@ BaseVoltage {
 
 
 
-VoltageLevel {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-
-
-BaseVoltage -> VoltageLevel: VoltageLevel
 
 
 legend: "" {
@@ -116,18 +121,11 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<VoltageLevel,`VoltageLevel`>>
-//| [[slots_table.VoltageLevel]]<<VoltageLevel,`VoltageLevel`>>
-| 0..* +
-xref::class/VoltageLevel.adoc[`VoltageLevel`]
-| +++The voltage levels having this base voltage.+++
-| _n/a_
-
 | <<nominalVoltage,`nominalVoltage`>>
 //| [[slots_table.nominalVoltage]]<<nominalVoltage,`nominalVoltage`>>
-| 0..1 +
+| 1 +
 xref::class/Voltage.adoc[`Voltage`]
-| +++The power system resource's base voltage.  Shall be a positive value and not zero.+++
+| +++The power system resource's base voltage. Shall be a positive value and not zero.+++
 | _n/a_
 
 | <<description,`description`>>
@@ -139,7 +137,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -196,7 +194,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -246,7 +244,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 //[discrete]
 [#nominalVoltage]
 === `nominalVoltage`
-+++The power system resource's base voltage.  Shall be a positive value and not zero.+++
++++The power system resource's base voltage. Shall be a positive value and not zero.+++
 
 
 [cols="h,4",width=65%]
@@ -254,7 +252,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:BaseVoltage.nominalVoltage`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/Voltage.adoc[`Voltage`]
 
@@ -265,32 +263,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.nominalVoltage,&#10548;>>
---
-////
-
-
-//[discrete]
-[#VoltageLevel]
-=== `VoltageLevel`
-+++The voltage levels having this base voltage.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:BaseVoltage.VoltageLevel`
-| Cardinality
-| 0..*
-| Type
-| xref::class/VoltageLevel.adoc[`VoltageLevel`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.VoltageLevel,&#10548;>>
 --
 ////
 

@@ -18,6 +18,23 @@
 | IEC61970 (Grid)
 
 
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#narrowMatch[`skos:narrowMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/knooppunt[`nbnl:knooppunt`]
+
+
+
+!===
+
+
 
 |===
 
@@ -47,7 +64,7 @@ ConnectivityNode {
 
 
 
-ConnectivityNodeContainer {
+VoltageLevel {
   style {
     fill: "#eccfcb"
     shadow: true
@@ -66,7 +83,7 @@ BoundaryPoint {
 
 
 
-ConnectivityNode -> ConnectivityNodeContainer: ConnectivityNodeContainer
+ConnectivityNode -> VoltageLevel: ConnectivityNodeContainer
 
 
 ConnectivityNode -> BoundaryPoint: BoundaryPoint
@@ -127,15 +144,15 @@ legend: "" {
 
 | <<BoundaryPoint,`BoundaryPoint`>>
 //| [[slots_table.BoundaryPoint]]<<BoundaryPoint,`BoundaryPoint`>>
-| 0..1 +
+| 1 +
 xref::class/BoundaryPoint.adoc[`BoundaryPoint`]
 | +++The boundary point associated with the connectivity node.+++
 | _n/a_
 
 | <<ConnectivityNodeContainer,`ConnectivityNodeContainer`>>
 //| [[slots_table.ConnectivityNodeContainer]]<<ConnectivityNodeContainer,`ConnectivityNodeContainer`>>
-| 0..1 +
-xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
+| 1 +
+xref::class/VoltageLevel.adoc[`VoltageLevel`]
 | +++Container of this connectivity node.+++
 | _n/a_
 
@@ -148,7 +165,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -175,7 +192,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | https://cim.ucaiug.io/ns/eu#ConnectivityNode.BoundaryPoint[`eu:ConnectivityNode.BoundaryPoint`]
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/BoundaryPoint.adoc[`BoundaryPoint`]
 
@@ -201,9 +218,9 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:ConnectivityNode.ConnectivityNodeContainer`
 | Cardinality
-| 0..1
+| 1
 | Type
-| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
+| xref::class/VoltageLevel.adoc[`VoltageLevel`]
 
 
 |===
@@ -257,7 +274,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -310,18 +327,4 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 == Used by
 
 
-[cols="1,1",width=65%]
-|===
-| Source class | Slot name
-
-
-
-| xref::class/BoundaryPoint.adoc[`BoundaryPoint`] | xref::class/BoundaryPoint.adoc#ConnectivityNode[`ConnectivityNode`]
-
-
-
-| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`] | xref::class/ConnectivityNodeContainer.adoc#ConnectivityNodes[`ConnectivityNodes`]
-
-
-|===
-
+This class is not used by any other classes as the range of a slot.

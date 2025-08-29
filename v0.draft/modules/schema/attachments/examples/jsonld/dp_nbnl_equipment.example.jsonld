@@ -3,45 +3,89 @@
     "linkml": "https://w3id.org/linkml/",
     "cim": "https://cim.ucaiug.io/ns#",
     "eu": "https://cim.ucaiug.io/ns/eu#",
+    "nl": "https://cim.ucaiug.io/ns/nl#",
     "nbnl": "https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
-      "@id": "urn:uuid:3be222ef-adba-454e-a225-15059c28f65f",
-      "@type": "cim:BaseVoltage"
+      "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "@type": "cim:GeographicalRegion",
+      "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "cim:IdentifiedObject.name": "NL"
     },
     {
-      "@id": "urn:uuid:911b1975-85e2-461e-9950-d970e714e213",
-      "@type": "cim:Voltage"
+      "@id": "urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "2128cb2f-9425-4cf7-9462-9fd59e06542d",
+      "cim:IdentifiedObject.name": "TenneT"
     },
     {
-      "@id": "urn:uuid:20195170-ca43-4ae6-ae29-39798bf237b9",
-      "@type": "cim:VoltageLevel"
+      "@id": "urn:uuid:755de658-5567-4b65-85bd-f6d3cf41d992",
+      "@type": "cim:Substation",
+      "cim:Substation.Region": {
+        "@id": "urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d"
+      },
+      "cim:IdentifiedObject.mRID": "755de658-5567-4b65-85bd-f6d3cf41d992",
+      "cim:IdentifiedObject.name": "Station Arnhem 150"
     },
     {
-      "@id": "urn:uuid:15b04cae-426a-4139-ad1b-644bd69a9e48",
-      "@type": "cim:Substation"
+      "@id": "urn:uuid:69e74dbd-b68a-4e2b-8cf7-da98891de6a1",
+      "@type": "cim:VoltageLevel",
+      "cim:VoltageLevel.BaseVoltage": {
+        "@id": "urn:uuid:3d2d86e6-be41-4259-a55f-b3ed254b35a9"
+      },
+      "cim:VoltageLevel.Substation": {
+        "@id": "urn:uuid:755de658-5567-4b65-85bd-f6d3cf41d992"
+      },
+      "cim:IdentifiedObject.mRID": "69e74dbd-b68a-4e2b-8cf7-da98891de6a1"
     },
     {
-      "@id": "urn:uuid:c208b974-9856-4bf3-868b-23cbf7eeaa50",
-      "@type": "cim:SubGeographicalRegion"
+      "@id": "urn:uuid:3d2d86e6-be41-4259-a55f-b3ed254b35a9",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:8038196f-375a-4eb1-94dd-5269a856aad3"
+      },
+      "cim:IdentifiedObject.mRID": "3d2d86e6-be41-4259-a55f-b3ed254b35a9",
+      "cim:IdentifiedObject.name": "Hoogspanning (150 kV)"
     },
     {
-      "@id": "urn:uuid:f8f435fc-3fd2-4795-bf1d-08f2936e1ad5",
-      "@type": "cim:GeographicalRegion"
+      "@id": "urn:uuid:8038196f-375a-4eb1-94dd-5269a856aad3",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 150.0,
+        "@type": "xsd:float"
+      }
     },
     {
-      "@id": "urn:uuid:cbd5e03a-74b2-49a2-8258-0bea9a3ea287",
-      "@type": "cim:IdentifiedObject"
+      "@id": "urn:uuid:f0c14f64-3aa3-44ae-b858-18d6a75dc72a",
+      "@type": "cim:ConnectivityNode",
+      "cim:ConnectivityNode.ConnectivityNodeContainer": {
+        "@id": "urn:uuid:69e74dbd-b68a-4e2b-8cf7-da98891de6a1"
+      },
+      "eu:ConnectivityNode.BoundaryPoint": {
+        "@id": "urn:uuid:d39090b1-58aa-446b-9551-4c6188aa7d0f"
+      },
+      "cim:IdentifiedObject.mRID": "f0c14f64-3aa3-44ae-b858-18d6a75dc72a"
     },
     {
-      "@id": "urn:uuid:20f60c80-9a4c-471b-9c97-0ee4ee13be07",
-      "@type": "cim:ConnectivityNode"
-    },
-    {
-      "@id": "urn:uuid:929274b8-0739-4333-9b54-d8661ace00fa",
-      "@type": "eu:BoundaryPoint"
+      "@id": "urn:uuid:d39090b1-58aa-446b-9551-4c6188aa7d0f",
+      "@type": "eu:BoundaryPoint",
+      "nl:IdentifiedObject.europeanArticleNumberEAN": "8000123456789012",
+      "eu:BoundaryPoint.fromEndIsoCode": "NL",
+      "eu:BoundaryPoint.fromEndNameTso": "TenneT",
+      "eu:BoundaryPoint.toEndIsoCode": "NL",
+      "eu:BoundaryPoint.toEndNameTso": "Liander",
+      "cim:IdentifiedObject.mRID": "d39090b1-58aa-446b-9551-4c6188aa7d0f"
     }
   ]
 }

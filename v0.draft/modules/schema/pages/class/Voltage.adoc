@@ -28,19 +28,19 @@
 | Name | Type | Description
 
 | `value`
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/Float[`float`]
 //| +++None+++
 | n/a
 
 | `multiplier`
-| 0..1 +
+| 1 +
 xref::enumeration/UnitMultiplier.adoc[`UnitMultiplier`]
 //| +++None+++
 | n/a
 
 | `unit`
-| 0..1 +
+| 1 +
 xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
 //| +++None+++
 | n/a
@@ -61,7 +61,7 @@ xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
 | URI
 | `cim:Voltage.multiplier`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::enumeration/UnitMultiplier.adoc[`UnitMultiplier`]
 |===
@@ -76,7 +76,7 @@ xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
 | URI
 | `cim:Voltage.unit`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
 |===
@@ -91,7 +91,7 @@ xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
 | URI
 | `cim:Voltage.value`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/Float[`float`]
 |===

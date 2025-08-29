@@ -18,6 +18,23 @@
 | IEC61970 (Grid)
 
 
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/installatie[`nbnl:installatie`]
+
+
+
+!===
+
+
 
 |===
 
@@ -68,23 +85,11 @@ Substation {
 
 
 
-ConnectivityNode {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
 
 VoltageLevel -> BaseVoltage: BaseVoltage
 
 
 VoltageLevel -> Substation: Substation
-
-
-VoltageLevel -> ConnectivityNode: ConnectivityNodes
 
 
 legend: "" {
@@ -142,24 +147,17 @@ legend: "" {
 
 | <<BaseVoltage,`BaseVoltage`>>
 //| [[slots_table.BaseVoltage]]<<BaseVoltage,`BaseVoltage`>>
-| 0..1 +
+| 1 +
 xref::class/BaseVoltage.adoc[`BaseVoltage`]
 | +++The base voltage used for all equipment within the voltage level.+++
 | _n/a_
 
 | <<Substation,`Substation`>>
 //| [[slots_table.Substation]]<<Substation,`Substation`>>
-| 0..1 +
+| 1 +
 xref::class/Substation.adoc[`Substation`]
 | +++The substation of the voltage level.+++
 | _n/a_
-
-| <<ConnectivityNodes,`ConnectivityNodes`>>
-//| [[slots_table.ConnectivityNodes]]<<ConnectivityNodes,`ConnectivityNodes`>>
-| 0..* +
-xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-| +++Connectivity nodes which belong to this connectivity node container.+++
-| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
 
 | <<description,`description`>>
 //| [[slots_table.description]]<<description,`description`>>
@@ -170,7 +168,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -197,7 +195,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:VoltageLevel.BaseVoltage`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/BaseVoltage.adoc[`BaseVoltage`]
 
@@ -208,35 +206,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.BaseVoltage,&#10548;>>
---
-////
-
-
-//[discrete]
-[#ConnectivityNodes]
-=== `ConnectivityNodes`
-+++Connectivity nodes which belong to this connectivity node container.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:ConnectivityNodeContainer.ConnectivityNodes`
-| Cardinality
-| 0..*
-| Type
-| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-
-| Inherited from
-| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.ConnectivityNodes,&#10548;>>
 --
 ////
 
@@ -282,7 +251,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -340,7 +309,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:VoltageLevel.Substation`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/Substation.adoc[`Substation`]
 
@@ -367,11 +336,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 
-| xref::class/BaseVoltage.adoc[`BaseVoltage`] | xref::class/BaseVoltage.adoc#VoltageLevel[`VoltageLevel`]
-
-
-
-| xref::class/Substation.adoc[`Substation`] | xref::class/Substation.adoc#VoltageLevels[`VoltageLevels`]
+| xref::class/ConnectivityNode.adoc[`ConnectivityNode`] | xref::class/ConnectivityNode.adoc#ConnectivityNodeContainer[`ConnectivityNodeContainer`]
 
 
 |===

@@ -18,6 +18,23 @@
 | IEC61970 (Grid)
 
 
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://www.cbs.nl/nl-nl/onze-diensten/methoden/begrippen/landsdeel[`cbs:landsdeel`]
+
+
+
+!===
+
+
 
 |===
 
@@ -30,95 +47,10 @@
 
 
 
-.Associated classes
-[d2,svg,theme=4]
-----
-vars: {
-  d2-config: {
-    pad: 20
-  }
-}
-GeographicalRegion {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-SubGeographicalRegion {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-
-GeographicalRegion -> SubGeographicalRegion: Regions
-
-
-legend: "" {
-  style: {
-    fill: transparent
-    stroke: transparent
-  }
-  grid-rows: 3
-  grid-columns: 2
-  grid-gap: 10
-  near: bottom-right
-  iec61968_color: "" {
-    style: {
-      fill: "#d1e7c2"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec61968_text: "IEC61968 (Enterprise)" {
-    shape: text
-  }
-  iec61970_color: "" {
-    style: {
-      fill: "#eccfcb"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec61970_text: "IEC61970 (Grid)" {
-    shape: text
-  }
-  iec62325_color: "" {
-    style: {
-      fill: "#fffbef"
-      stroke: black
-      stroke-width: 1
-    }
-    width: 10
-    height: 10
-  }
-  iec62325_text: "IEC62325 (Market)" {
-    shape: text
-  }
-}
-----
-
 
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
-
-| <<Regions,`Regions`>>
-//| [[slots_table.Regions]]<<Regions,`Regions`>>
-| 0..* +
-xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
-| +++All sub-geographical regions within this geographical region.+++
-| _n/a_
 
 | <<description,`description`>>
 //| [[slots_table.description]]<<description,`description`>>
@@ -129,7 +61,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -186,7 +118,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -229,32 +161,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.name,&#10548;>>
---
-////
-
-
-//[discrete]
-[#Regions]
-=== `Regions`
-+++All sub-geographical regions within this geographical region.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:GeographicalRegion.Regions`
-| Cardinality
-| 0..*
-| Type
-| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Regions,&#10548;>>
 --
 ////
 
