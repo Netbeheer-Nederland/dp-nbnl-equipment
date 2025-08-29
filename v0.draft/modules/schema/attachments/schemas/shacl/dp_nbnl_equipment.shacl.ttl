@@ -9,19 +9,20 @@ cim:ConnectivityNode a sh:NodeShape ;
     sh:closed false ;
     sh:description "Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class eu:BoundaryPoint ;
+    sh:property [ sh:class eu:BoundaryPoint ;
             sh:description "The boundary point associated with the connectivity node." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path eu:ConnectivityNode.BoundaryPoint ],
+        [ sh:class cim:VoltageLevel ;
+            sh:description "Container of this connectivity node." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:ConnectivityNode.ConnectivityNodeContainer ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -31,31 +32,36 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:order 3 ;
             sh:path cim:IdentifiedObject.mRID ],
         [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
+            sh:order 5 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:VoltageLevel ;
-            sh:description "Container of this connectivity node." ;
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:ConnectivityNode.ConnectivityNodeContainer ] ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ] ;
     sh:targetClass cim:ConnectivityNode .
 
 cim:EquipmentContainer a sh:NodeShape ;
     sh:closed false ;
     sh:description "A modelling construct to provide a root class for containing equipment. " ;
-    sh:ignoredProperties ( <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> cim:BaseVoltage cim:Substation rdf:type ) ;
+    sh:ignoredProperties ( cim:Substation cim:BaseVoltage rdf:type <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
+            sh:order 3 ;
             sh:path cim:IdentifiedObject.name ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
@@ -63,6 +69,12 @@ cim:EquipmentContainer a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -76,7 +88,40 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 cim:IdentifiedObject a sh:NodeShape ;
     sh:closed false ;
     sh:description "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
-    sh:ignoredProperties ( eu:BoundaryPoint.fromEndIsoCode eu:BoundaryPoint.fromEndNameTso cim:ConnectivityNodeContainer eu:BoundaryPoint.toEndNameTso nl:IdentifiedObject.europeanArticleNumberEAN <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> cim:BaseVoltage.nominalVoltage eu:BoundaryPoint.toEndIsoCode rdf:type eu:BoundaryPoint cim:Substation cim:BaseVoltage ) ;
+    sh:ignoredProperties ( cim:BaseVoltage.nominalVoltage cim:Substation eu:BoundaryPoint.toEndNameTso cim:BaseVoltage cim:ConnectivityNodeContainer eu:BoundaryPoint.fromEndNameTso rdf:type eu:BoundaryPoint.fromEndIsoCode eu:BoundaryPoint.toEndIsoCode <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> eu:BoundaryPoint ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ] ;
+    sh:targetClass cim:IdentifiedObject .
+
+cim:PowerSystemResource a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated." ;
+    sh:ignoredProperties ( cim:Substation eu:BoundaryPoint.toEndNameTso cim:BaseVoltage eu:BoundaryPoint.fromEndNameTso rdf:type eu:BoundaryPoint.fromEndIsoCode eu:BoundaryPoint.toEndIsoCode <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -86,6 +131,12 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:order 1 ;
             sh:path cim:IdentifiedObject.mRID ],
         [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
+        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -96,55 +147,34 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
+            sh:order 3 ;
             sh:path cim:IdentifiedObject.name ] ;
-    sh:targetClass cim:IdentifiedObject .
-
-cim:PowerSystemResource a sh:NodeShape ;
-    sh:closed false ;
-    sh:description "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated." ;
-    sh:ignoredProperties ( eu:BoundaryPoint.fromEndIsoCode eu:BoundaryPoint.fromEndNameTso eu:BoundaryPoint.toEndNameTso nl:IdentifiedObject.europeanArticleNumberEAN <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> eu:BoundaryPoint.toEndIsoCode rdf:type cim:Substation cim:BaseVoltage ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
     sh:targetClass cim:PowerSystemResource .
 
 cim:ConnectivityNodeContainer a sh:NodeShape ;
     sh:closed false ;
     sh:description """A base class for all objects that may contain connectivity nodes or topological nodes.\r
 """ ;
-    sh:ignoredProperties ( <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> cim:BaseVoltage cim:Substation rdf:type ) ;
+    sh:ignoredProperties ( cim:Substation cim:BaseVoltage rdf:type <http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/:Region> ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:IdentifiedObject.name ],
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.name ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -167,12 +197,11 @@ cim:GeographicalRegion a sh:NodeShape ;
             sh:order 0 ;
             sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:IdentifiedObject.name ],
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -180,7 +209,14 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.name ] ;
     sh:targetClass cim:GeographicalRegion .
 
 cim:SubGeographicalRegion a sh:NodeShape ;
@@ -188,7 +224,13 @@ cim:SubGeographicalRegion a sh:NodeShape ;
     sh:description """A subset of a geographical region of a power system network model.\r
 """ ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:GeographicalRegion ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
+        [ sh:class cim:GeographicalRegion ;
             sh:description "The geographical region which this sub-geographical region is within." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -200,14 +242,8 @@ cim:SubGeographicalRegion a sh:NodeShape ;
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
+            sh:order 4 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -215,7 +251,13 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:SubGeographicalRegion .
 
 cim:Voltage a sh:NodeShape ;
@@ -245,11 +287,13 @@ cim:VoltageLevel a sh:NodeShape ;
     sh:description "A collection of equipment at one common system voltage forming a switchgear. The equipment typically consists of breakers, busbars, instrumentation, control, regulation and protection devices as well as assemblies of all these." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ],
         [ sh:class cim:Substation ;
             sh:description "The substation of the voltage level." ;
             sh:maxCount 1 ;
@@ -258,13 +302,11 @@ cim:VoltageLevel a sh:NodeShape ;
             sh:order 1 ;
             sh:path cim:VoltageLevel.Substation ],
         [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ],
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:class cim:BaseVoltage ;
             sh:description "The base voltage used for all equipment within the voltage level." ;
             sh:maxCount 1 ;
@@ -277,8 +319,14 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path cim:IdentifiedObject.name ] ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ] ;
     sh:targetClass cim:VoltageLevel .
 
 eu:BoundaryPoint a sh:NodeShape ;
@@ -286,19 +334,6 @@ eu:BoundaryPoint a sh:NodeShape ;
     sh:description "Designates a connection point at which one or more model authority sets shall connect to. The location of the connection point as well as other properties are agreed between organisations responsible for the interconnection, hence all attributes of the class represent this agreement.  It is primarily used in a boundary model authority set which can contain one or many BoundaryPoint-s among other Equipment-s and their connections." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
-        [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
@@ -311,38 +346,50 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
+            sh:order 5 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "Identifies the name of the transmission system operator, distribution system operator or other entity at which the \"From\" side of the interconnection is connected to. The length of the string is 64 characters maximum." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path eu:BoundaryPoint.fromEndNameTso ],
-        [ sh:datatype xsd:string ;
-            sh:description """The ISO code of the region which the "From" side of the Boundary point belongs to or it is connected to.
-The ISO code is a two-character country code as defined by ISO 3166 (http://www.iso.org/iso/country_codes). The length of the string is 2 characters maximum.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path eu:BoundaryPoint.fromEndIsoCode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Identifies the name of the transmission system operator, distribution system operator or other entity at which the \"To\" side of the interconnection is connected to. The length of the string is 64 characters maximum." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path eu:BoundaryPoint.toEndNameTso ],
         [ sh:datatype xsd:string ;
             sh:description """The ISO code of the region which the "To" side of the Boundary point belongs to or is connected to.
 The ISO code is a two-character country code as defined by ISO 3166 (http://www.iso.org/iso/country_codes). The length of the string is 2 characters maximum.""" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path eu:BoundaryPoint.toEndIsoCode ],
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
+        [ sh:datatype xsd:string ;
+            sh:description """The ISO code of the region which the "From" side of the Boundary point belongs to or it is connected to.
+The ISO code is a two-character country code as defined by ISO 3166 (http://www.iso.org/iso/country_codes). The length of the string is 2 characters maximum.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path eu:BoundaryPoint.fromEndIsoCode ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifies the name of the transmission system operator, distribution system operator or other entity at which the \"To\" side of the interconnection is connected to. The length of the string is 64 characters maximum." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path eu:BoundaryPoint.toEndIsoCode ] ;
+            sh:path eu:BoundaryPoint.toEndNameTso ],
+        [ sh:datatype xsd:string ;
+            sh:description "Identifies the name of the transmission system operator, distribution system operator or other entity at which the \"From\" side of the interconnection is connected to. The length of the string is 64 characters maximum." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path eu:BoundaryPoint.fromEndNameTso ] ;
     sh:targetClass eu:BoundaryPoint .
 
 cim:BaseVoltage a sh:NodeShape ;
@@ -350,19 +397,6 @@ cim:BaseVoltage a sh:NodeShape ;
     sh:description "Defines a system base voltage which is referenced. " ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -376,15 +410,14 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 0 ;
-            sh:path cim:BaseVoltage.nominalVoltage ] ;
-    sh:targetClass cim:BaseVoltage .
-
-cim:Substation a sh:NodeShape ;
-    sh:closed false ;
-    sh:description """A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics. \r
-""" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+            sh:path cim:BaseVoltage.nominalVoltage ],
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
+        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -395,8 +428,28 @@ cim:Substation a sh:NodeShape ;
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.name ] ;
+    sh:targetClass cim:BaseVoltage .
+
+cim:Substation a sh:NodeShape ;
+    sh:closed false ;
+    sh:description """A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics. \r
+""" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class cim:SubGeographicalRegion ;
+            sh:description "The SubGeographicalRegion containing the substation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:Substation.Region ],
+        [ sh:datatype xsd:string ;
+            sh:description "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path cim:IdentifiedObject.name ],
+            sh:path nl:IdentifiedObject.europeanArticleNumberEAN ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -405,13 +458,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:SubGeographicalRegion ;
-            sh:description "The SubGeographicalRegion containing the substation." ;
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:Substation.Region ] ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:Substation .
 
 

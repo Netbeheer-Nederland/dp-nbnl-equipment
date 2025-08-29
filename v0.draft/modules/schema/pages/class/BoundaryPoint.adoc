@@ -50,13 +50,6 @@ https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/overdrachts
 |===
 | Name | Type | Description | Inherited from
 
-| <<european_article_number_ean,`european_article_number_ean`>>
-//| [[slots_table.european_article_number_ean]]<<european_article_number_ean,`european_article_number_ean`>>
-| 1 +
-https://w3id.org/linkml/String[`string`]
-| +++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters...+++
-| _n/a_
-
 | <<fromEndIsoCode,`fromEndIsoCode`>>
 //| [[slots_table.fromEndIsoCode]]<<fromEndIsoCode,`fromEndIsoCode`>>
 | 1 +
@@ -92,6 +85,13 @@ https://w3id.org/linkml/String[`string`]
 | 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<european_article_number_ean,`european_article_number_ean`>>
+//| [[slots_table.european_article_number_ean]]<<european_article_number_ean,`european_article_number_ean`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters...+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 | <<mRID,`mRID`>>
@@ -152,9 +152,12 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | https://cim.ucaiug.io/ns/nl#IdentifiedObject.europeanArticleNumberEAN[`nl:IdentifiedObject.europeanArticleNumberEAN`]
 | Cardinality
-| 1
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 
 |===
