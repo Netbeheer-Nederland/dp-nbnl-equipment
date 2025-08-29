@@ -8,9 +8,12 @@ imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  cbs: https://www.cbs.nl/nl-nl/onze-diensten/methoden/begrippen/
   cim: https://cim.ucaiug.io/ns#
   eu: https://cim.ucaiug.io/ns/eu#
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
+  nl: https://cim.ucaiug.io/ns/nl#
+  skos: http://www.w3.org/2004/02/skos/core#
   xsd: http://www.w3.org/2001/XMLSchema#
 enums:
   UnitMultiplier:
@@ -114,18 +117,14 @@ classes:
     is_a: IdentifiedObject
     attributes:
       nominalVoltage:
-        description: The power system resource's base voltage.  Shall be a positive
-          value and not zero.
+        description: The power system resource's base voltage. Shall be a
+          positive value and not zero.
         slot_uri: cim:BaseVoltage.nominalVoltage
         range: Voltage
-        required: false
+        required: true
         multivalued: false
-      VoltageLevel:
-        description: The voltage levels having this base voltage.
-        slot_uri: cim:BaseVoltage.VoltageLevel
-        range: VoltageLevel
-        required: false
-        multivalued: true
+    exact_mappings:
+      - nbnl:spanningsniveau
     class_uri: cim:BaseVoltage
   Voltage:
     annotations:
@@ -138,17 +137,17 @@ classes:
       multiplier:
         slot_uri: cim:Voltage.multiplier
         range: UnitMultiplier
-        required: false
+        required: true
         multivalued: false
       unit:
         slot_uri: cim:Voltage.unit
         range: UnitSymbol
-        required: false
+        required: true
         multivalued: false
       value:
         slot_uri: cim:Voltage.value
         range: float
-        required: false
+        required: true
         multivalued: false
     class_uri: cim:Voltage
   VoltageLevel:
@@ -162,14 +161,16 @@ classes:
         description: The base voltage used for all equipment within the voltage level.
         slot_uri: cim:VoltageLevel.BaseVoltage
         range: BaseVoltage
-        required: false
+        required: true
         multivalued: false
       Substation:
         description: The substation of the voltage level.
         slot_uri: cim:VoltageLevel.Substation
         range: Substation
-        required: false
+        required: true
         multivalued: false
+    exact_mappings:
+      - nbnl:installatie
     class_uri: cim:VoltageLevel
   Substation:
     description: "A collection of equipment for purposes other than generation or\
@@ -178,18 +179,14 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: EquipmentContainer
     attributes:
-      VoltageLevels:
-        description: The voltage levels within this substation.
-        slot_uri: cim:Substation.VoltageLevels
-        range: VoltageLevel
-        required: false
-        multivalued: true
       Region:
         description: The SubGeographicalRegion containing the substation.
         slot_uri: cim:Substation.Region
         range: SubGeographicalRegion
-        required: false
+        required: true
         multivalued: false
+    narrow_mappings:
+      - nbnl:knooppunt
     class_uri: cim:Substation
   SubGeographicalRegion:
     description: "A subset of a geographical region of a power system network model.\r\
@@ -197,32 +194,23 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
     attributes:
-      Substations:
-        description: The substations in this sub-geographical region.
-        slot_uri: cim:SubGeographicalRegion.Substations
-        range: Substation
-        required: false
-        multivalued: true
       Region:
         description: The geographical region which this sub-geographical region is
           within.
         slot_uri: cim:SubGeographicalRegion.Region
         range: GeographicalRegion
-        required: false
+        required: true
         multivalued: false
+    narrow_mappings:
+      - nbnl:energienet
     class_uri: cim:SubGeographicalRegion
   GeographicalRegion:
     description: "A geographical region of a power system network model.\r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
-    attributes:
-      Regions:
-        description: All sub-geographical regions within this geographical region.
-        slot_uri: cim:GeographicalRegion.Regions
-        range: SubGeographicalRegion
-        required: false
-        multivalued: true
     class_uri: cim:GeographicalRegion
+    exact_mappings:
+      - cbs:landsdeel
     tree_root: true
   IdentifiedObject:
     description: This is a root class to provide common identification for all classes
@@ -245,7 +233,8 @@ classes:
           \ attributes that identify CIM object elements."
         slot_uri: cim:IdentifiedObject.mRID
         range: string
-        required: false
+        required: true
+        identifier: true
         multivalued: false
       name:
         description: "The name is any free human readable and possibly non unique\
@@ -254,6 +243,7 @@ classes:
         range: string
         required: false
         multivalued: false
+    abstract: true
     class_uri: cim:IdentifiedObject
   ConnectivityNode:
     description: Connectivity nodes are points where terminals of AC conducting equipment
@@ -264,28 +254,23 @@ classes:
       ConnectivityNodeContainer:
         description: Container of this connectivity node.
         slot_uri: cim:ConnectivityNode.ConnectivityNodeContainer
-        range: ConnectivityNodeContainer
-        required: false
+        range: VoltageLevel
+        required: true
         multivalued: false
       BoundaryPoint:
         description: The boundary point associated with the connectivity node.
         slot_uri: eu:ConnectivityNode.BoundaryPoint
         range: BoundaryPoint
-        required: false
+        required: true
         multivalued: false
+    narrow_mappings:
+      - nbnl:knooppunt
     class_uri: cim:ConnectivityNode
   ConnectivityNodeContainer:
     description: "A base class for all objects that may contain connectivity nodes\
       \ or topological nodes.\r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: PowerSystemResource
-    attributes:
-      ConnectivityNodes:
-        description: Connectivity nodes which belong to this connectivity node container.
-        slot_uri: cim:ConnectivityNodeContainer.ConnectivityNodes
-        range: ConnectivityNode
-        required: false
-        multivalued: true
     abstract: true
     class_uri: cim:ConnectivityNodeContainer
   BoundaryPoint:
@@ -297,6 +282,14 @@ classes:
       among other Equipment-s and their connections.
     is_a: PowerSystemResource
     attributes:
+      european_article_number_ean:
+        description: The attribute is used for an exchange of the EAN code (European
+          Article Number). The length of the string is 16 characters as defined by
+          the EAN code.
+        slot_uri: nl:IdentifiedObject.europeanArticleNumberEAN
+        range: string
+        required: true
+        multivalued: false
       fromEndIsoCode:
         description: 'The ISO code of the region which the "From" side of the Boundary
           point belongs to or it is connected to.
@@ -305,22 +298,7 @@ classes:
           The length of the string is 2 characters maximum.'
         slot_uri: eu:BoundaryPoint.fromEndIsoCode
         range: string
-        required: false
-        multivalued: false
-      fromEndName:
-        description: 'A human readable name with length of the string 64 characters
-          maximum. It covers the following two cases:
-
-          -if the Boundary point is placed on a tie-line, it is the name (IdentifiedObject.name)
-          of the substation at which the "From" side of the tie-line is connected
-          to.
-
-          -if the Boundary point is placed in a substation, it is the name (IdentifiedObject.name)
-          of the element (e.g. PowerTransformer, ACLineSegment, Switch, etc.) at which
-          the "From" side of the Boundary point is connected to.'
-        slot_uri: eu:BoundaryPoint.fromEndName
-        range: string
-        required: false
+        required: true
         multivalued: false
       fromEndNameTso:
         description: Identifies the name of the transmission system operator, distribution
@@ -328,7 +306,7 @@ classes:
           is connected to. The length of the string is 64 characters maximum.
         slot_uri: eu:BoundaryPoint.fromEndNameTso
         range: string
-        required: false
+        required: true
         multivalued: false
       toEndIsoCode:
         description: 'The ISO code of the region which the "To" side of the Boundary
@@ -338,21 +316,7 @@ classes:
           The length of the string is 2 characters maximum.'
         slot_uri: eu:BoundaryPoint.toEndIsoCode
         range: string
-        required: false
-        multivalued: false
-      toEndName:
-        description: 'A human readable name with length of the string 64 characters
-          maximum. It covers the following two cases:
-
-          -if the Boundary point is placed on a tie-line, it is the name (IdentifiedObject.name)
-          of the substation at which the "To" side of the tie-line is connected to.
-
-          -if the Boundary point is placed in a substation, it is the name (IdentifiedObject.name)
-          of the element (e.g. PowerTransformer, ACLineSegment, Switch, etc.) at which
-          the "To" side of the Boundary point is connected to.'
-        slot_uri: eu:BoundaryPoint.toEndName
-        range: string
-        required: false
+        required: true
         multivalued: false
       toEndNameTso:
         description: Identifies the name of the transmission system operator, distribution
@@ -360,14 +324,10 @@ classes:
           is connected to. The length of the string is 64 characters maximum.
         slot_uri: eu:BoundaryPoint.toEndNameTso
         range: string
-        required: false
+        required: true
         multivalued: false
-      ConnectivityNode:
-        description: The connectivity node that is designated as a boundary point.
-        slot_uri: eu:BoundaryPoint.ConnectivityNode
-        range: ConnectivityNode
-        required: false
-        multivalued: false
+    exact_mappings:
+      - nbnl:overdrachtspunt
     class_uri: eu:BoundaryPoint
   PowerSystemResource:
     description: A power system resource (PSR) can be an item of equipment such as

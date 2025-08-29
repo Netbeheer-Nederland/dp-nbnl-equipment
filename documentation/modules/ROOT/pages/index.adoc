@@ -1,22 +1,37 @@
-= NBNL Equipment
+= NBNL Equipment (EQ)
 
-
+This data product is an implementation of the NBNL Equipment Profile.
 
 .Data Product
 [d2,svg,theme=4]
 ----
-grid-rows: 5
-grid-columns: 5
-
-horizontal-gap: 160
-vertical-gap: 80
-
 vars: {
   d2-config: {
     pad: 20
+    layout-engine: ELK
   }
 }
 
+classes: {
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+}
 
 legend: "" {
   style: {
@@ -65,41 +80,37 @@ legend: "" {
   }
 }
 
-classes: {
-  empty: {
-    label: ""
-    style: {
-      fill: transparent
-      stroke: transparent
-    }
-  }
-  grid: {
-    style: {
-      fill: "#eccfcb"
-      shadow: true
-    }
-  }
-  enterprise: {
-    style: {
-      fill: "#d1e7c2"
-      shadow: true
-    }
-  }
-  market: {
-    style: {
-      fill: "#fffbef"
-      shadow: true
-    }
-  }
-  dataset: {
-    style: {
-      shadow: true
-    }
-  }
-}
+direction: up
+
+BaseVoltage.class: grid
+BoundaryPoint.class: grid
+ConnectivityNode.class: grid
+GeographicalRegion.class: grid
+SubGeographicalRegion.class: grid
+Substation.class: grid
+Voltage.class: grid
+VoltageLevel.class: grid
+
+BaseVoltage -> Voltage: "nominalVoltage"
+VoltageLevel -> BaseVoltage: "BaseVoltage"
+VoltageLevel -> Substation: "Substation"
+Substation -> SubGeographicalRegion: "Region"
+SubGeographicalRegion -> GeographicalRegion: "Region"
+ConnectivityNode -> VoltageLevel: "ConnectivityNodeContainer"
+ConnectivityNode -> BoundaryPoint: "BoundaryPoint"
 ----
+
+This data product requires the use of
+https://netbeheer-nederland.github.io/docs-dev/im-object/latest/object_register.html[NBNL
+Object Register] for instantiation of its datasets.
+
+== Required background
+
+* knowledge of connectivity in the CIM;
+* knowledge of identification of individuals in the CIM;
+* knowledge of mRID persistence and master data management.
 
 == Additional artifacts
 
-* xref:schema:attachment$schemas/json_schema/dp_nbnl_equipment.json_schema.json[JSON schema]
-* xref:schema:attachment$examples/dp_nbnl_equipment.example.json[Example JSON instance data]
+* xref:schema:attachment$schemas/shacl/dp_nbnl_equipment.shacl.ttl[SHACL schema]
+* xref:schema:attachment$examples/jsonld/dp_nbnl_equipment.example.jsonld[Example JSON-LD instance data]
