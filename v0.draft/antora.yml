@@ -1,0 +1,6 @@
+name: dp-nbnl-equipment
+version: v0.draft
+title: NBNL Equipment
+nav:
+- modules/ROOT/nav.adoc
+- modules/schema/nav.adoc

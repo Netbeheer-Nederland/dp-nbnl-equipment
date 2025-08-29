@@ -1,0 +1,54 @@
+[.truncate]
+* Information model
+** xref::index.adoc[Index]
+** Classes
+*** xref::class/GeographicalRegion.adoc[GeographicalRegion (root)]
+
+*** xref::class/BaseVoltage.adoc[BaseVoltage]
+
+
+
+*** xref::class/BoundaryPoint.adoc[BoundaryPoint]
+
+
+
+*** xref::class/ConnectivityNode.adoc[ConnectivityNode]
+
+
+
+*** xref::class/ConnectivityNodeContainer.adoc[ConnectivityNodeContainer]
+
+
+
+*** xref::class/EquipmentContainer.adoc[EquipmentContainer]
+
+
+
+
+*** xref::class/IdentifiedObject.adoc[IdentifiedObject]
+
+
+
+*** xref::class/PowerSystemResource.adoc[PowerSystemResource]
+
+
+
+*** xref::class/SubGeographicalRegion.adoc[SubGeographicalRegion]
+
+
+
+*** xref::class/Substation.adoc[Substation]
+
+
+
+*** xref::class/VoltageLevel.adoc[VoltageLevel]
+
+
+
+** CIM data types
+*** xref::class/Voltage.adoc[Voltage]
+
+
+** Enumerations
+*** xref::enumeration/UnitMultiplier.adoc[UnitMultiplier]
+*** xref::enumeration/UnitSymbol.adoc[UnitSymbol]
