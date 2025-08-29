@@ -1,0 +1,5 @@
+name: dp-nbnl-equipment
+title: NBNL Equipment
+version: true
+nav:
+- modules/ROOT/nav.adoc
