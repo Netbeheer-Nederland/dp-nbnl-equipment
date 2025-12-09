@@ -272,7 +272,7 @@ classes:
         description: The boundary point associated with the connectivity node.
         slot_uri: eu:ConnectivityNode.BoundaryPoint
         range: BoundaryPoint
-        required: true
+        required: false
         multivalued: false
     class_uri: cim:ConnectivityNode
   ConnectivityNodeContainer:
@@ -447,7 +447,9 @@ classes:
       EquipmentContainer:
         description: Container of this equipment.
         slot_uri: cim:Equipment.EquipmentContainer
-        range: EquipmentContainer
+        any_of:
+          - range: EquipmentContainer
+          - range: Substation
         required: false
         multivalued: false
     class_uri: cim:Equipment
