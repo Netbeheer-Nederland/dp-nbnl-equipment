@@ -12,7 +12,20 @@ vars: {
   }
 }
 
+grid-rows: 5
+grid-columns: 4
+
+horizontal-gap: 160
+vertical-gap: 160
+
 classes: {
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
   grid: {
     style: {
       fill: "#eccfcb"
@@ -80,23 +93,28 @@ legend: "" {
   }
 }
 
-direction: up
-
-BaseVoltage.class: grid
-BoundaryPoint.class: grid
-ConnectivityNode.class: grid
 GeographicalRegion.class: grid
+Voltage.class: grid
+2.class: empty
+3.class: empty
+
+SubGeographicalRegion.class: grid
+BaseVoltage.class: grid
+4.class: empty
+5.class: empty
+
+Substation.class: grid
+VoltageLevel.class: grid
+ConnectivityNode.class: grid
+BoundaryPoint.class: grid
+
 PowerTransformer.class: grid
 PowerTransformerEnd.class: grid
-SubGeographicalRegion.class: grid
-Substation.class: grid
 Terminal.class: grid
-Voltage.class: grid
-VoltageLevel.class: grid
 
 BaseVoltage -> Voltage: "nominalVoltage"
 ConnectivityNode -> BoundaryPoint: "BoundaryPoint"
-ConnectivityNode -> VoltageLevel: "ConnectivityNodeContainer"
+ConnectivityNode -> VoltageLevel: "ConnectivityNode\nContainer"
 PowerTransformer -> Substation: "EquipmentContainer"
 PowerTransformerEnd -> PowerTransformer: "PowerTransformer"
 PowerTransformerEnd -> Terminal: "Terminal"
