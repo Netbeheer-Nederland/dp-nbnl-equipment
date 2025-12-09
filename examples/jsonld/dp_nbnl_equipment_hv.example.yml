@@ -5,6 +5,15 @@
   nl: https://cim.ucaiug.io/ns/nl#
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
   xsd: http://www.w3.org/2001/XMLSchema#
+'@id': urn:uuid:4562ba86-b5e0-470b-8e36-dae55428d77f
+'dcterms:issued':
+  '@value': 2025-12-05T12:34:567Z
+  '@type': xsd:date
+'dcterms:publisher':
+  '@id': urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d
+  'dcterms:title': 'TenneT'
+'dcterms:conformsTo':
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment
 '@graph':
   - '@id': urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be
     '@type': cim:GeographicalRegion

@@ -8,6 +8,18 @@
   skos: http://www.w3.org/2004/02/skos/core#
   xsd: http://www.w3.org/2001/XMLSchema#
   github: https://github.com/
+  dcterms: http://purl.org/dc/terms/
+'@id': urn:uuid:2d3088c1-2b9a-4cbc-84fa-c0670e0e8ecc
+'dcterms:issued':
+  '@value': 2025-12-05T12:34:567Z
+  '@type': xsd:date
+'dcterms:publisher':
+  '@id': urn:uuid:4f74c8e2-adb5-4815-9607-eb00fb6a0d55
+  'dcterms:title': 'Liander'
+'dcterms:conformsTo':
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment
+'dcterms:references':
+  - '@id': urn:uuid:4562ba86-b5e0-470b-8e36-dae55428d77f
 '@graph':
   - '@id': urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be
     '@type': cim:GeographicalRegion
