@@ -1,5 +1,41 @@
 {
     "$defs": {
+        "ACDCTerminal": {
+            "additionalProperties": false,
+            "description": "An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mRID"
+            ],
+            "title": "ACDCTerminal",
+            "type": "object"
+        },
         "BaseVoltage": {
             "additionalProperties": false,
             "description": "Defines a system base voltage which is referenced.",
@@ -97,13 +133,66 @@
             "title": "BoundaryPoint",
             "type": "object"
         },
+        "ConductingEquipment": {
+            "additionalProperties": false,
+            "description": "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.",
+            "properties": {
+                "EquipmentContainer": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Container of this equipment."
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mRID"
+            ],
+            "title": "ConductingEquipment",
+            "type": "object"
+        },
         "ConnectivityNode": {
             "additionalProperties": false,
             "description": "Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance.",
             "properties": {
                 "BoundaryPoint": {
                     "description": "The boundary point associated with the connectivity node.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "ConnectivityNodeContainer": {
                     "description": "Container of this connectivity node.",
@@ -137,10 +226,59 @@
             },
             "required": [
                 "ConnectivityNodeContainer",
-                "BoundaryPoint",
                 "mRID"
             ],
             "title": "ConnectivityNode",
+            "type": "object"
+        },
+        "Equipment": {
+            "additionalProperties": false,
+            "description": "The parts of a power system that are physical devices, electronic or mechanical.",
+            "properties": {
+                "EquipmentContainer": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Container of this equipment."
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mRID"
+            ],
+            "title": "Equipment",
             "type": "object"
         },
         "GeographicalRegion": {
@@ -177,6 +315,109 @@
                 "mRID"
             ],
             "title": "GeographicalRegion",
+            "type": "object"
+        },
+        "PowerTransformer": {
+            "additionalProperties": false,
+            "description": "An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).\r\nA power transformer may be composed of separate transformer tanks that need not be identical.\r\nA power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.\r\nThe inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.",
+            "properties": {
+                "EquipmentContainer": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Container of this equipment."
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mRID"
+            ],
+            "title": "PowerTransformer",
+            "type": "object"
+        },
+        "PowerTransformerEnd": {
+            "additionalProperties": false,
+            "description": "A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.\r\nThe impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows.\r\n1) for a two Terminal PowerTransformer the high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2) PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are always provided, even if the PowerTransformerEnds have the same rated voltage.  In this case, the parameters are provided at the PowerTransformerEnd which has TransformerEnd.endNumber equal to 1.\r\n2) for a three Terminal PowerTransformer the three PowerTransformerEnds represent a star equivalent with each leg in the star represented by r, r0, x, and x0 values.\r\n3) For a three Terminal transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding to the no load losses distributed on the three PowerTransformerEnds. The total no load loss shunt impedances may also be placed at one of the PowerTransformerEnds, preferably the end numbered 1, having the shunt values on end 1.  This is the preferred way.\r\n4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.\r\nEach PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).",
+            "properties": {
+                "PowerTransformer": {
+                    "description": "The power transformer of this power transformer end.",
+                    "type": "string"
+                },
+                "Terminal": {
+                    "description": "Terminal of the power transformer to which this transformer end belongs.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endNumber": {
+                    "description": "Number for this transformer end, corresponding to the end's order in the power transformer vector group or phase angle clock number.  Highest voltage winding should be 1.  Each end within a power transformer should have a unique subsequent end number.   Note the transformer end number need not match the terminal sequence number.\r\n",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "PowerTransformer",
+                "Terminal",
+                "mRID"
+            ],
+            "title": "PowerTransformerEnd",
             "type": "object"
         },
         "SubGeographicalRegion": {
@@ -259,6 +500,97 @@
                 "mRID"
             ],
             "title": "Substation",
+            "type": "object"
+        },
+        "Terminal": {
+            "additionalProperties": false,
+            "description": "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
+            "properties": {
+                "ConnectivityNode": {
+                    "description": "The connectivity node to which this terminal connects with zero impedance.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mRID"
+            ],
+            "title": "Terminal",
+            "type": "object"
+        },
+        "TransformerEnd": {
+            "additionalProperties": false,
+            "description": "A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.",
+            "properties": {
+                "Terminal": {
+                    "description": "Terminal of the power transformer to which this transformer end belongs.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endNumber": {
+                    "description": "Number for this transformer end, corresponding to the end's order in the power transformer vector group or phase angle clock number.  Highest voltage winding should be 1.  Each end within a power transformer should have a unique subsequent end number.   Note the transformer end number need not match the terminal sequence number.\r\n",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "Terminal",
+                "mRID"
+            ],
+            "title": "TransformerEnd",
             "type": "object"
         },
         "UnitMultiplier": {

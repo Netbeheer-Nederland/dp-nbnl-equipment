@@ -4,6 +4,10 @@
 ** Classes
 *** xref::class/GeographicalRegion.adoc[GeographicalRegion (root)]
 
+*** xref::class/ACDCTerminal.adoc[ACDCTerminal]
+
+
+
 *** xref::class/BaseVoltage.adoc[BaseVoltage]
 
 
@@ -12,11 +16,19 @@
 
 
 
+*** xref::class/ConductingEquipment.adoc[ConductingEquipment]
+
+
+
 *** xref::class/ConnectivityNode.adoc[ConnectivityNode]
 
 
 
 *** xref::class/ConnectivityNodeContainer.adoc[ConnectivityNodeContainer]
+
+
+
+*** xref::class/Equipment.adoc[Equipment]
 
 
 
@@ -33,11 +45,27 @@
 
 
 
+*** xref::class/PowerTransformer.adoc[PowerTransformer]
+
+
+
+*** xref::class/PowerTransformerEnd.adoc[PowerTransformerEnd]
+
+
+
 *** xref::class/SubGeographicalRegion.adoc[SubGeographicalRegion]
 
 
 
 *** xref::class/Substation.adoc[Substation]
+
+
+
+*** xref::class/Terminal.adoc[Terminal]
+
+
+
+*** xref::class/TransformerEnd.adoc[TransformerEnd]
 
 
 

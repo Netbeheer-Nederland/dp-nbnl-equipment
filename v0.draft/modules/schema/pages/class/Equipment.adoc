@@ -1,17 +1,17 @@
-= `IdentifiedObject`
+= `Equipment`
 :toclevels: 4
 
 
-+++This is a root class to provide common identification for all classes needing identification and naming attributes.+++
++++The parts of a power system that are physical devices, electronic or mechanical.+++
 
 
 [cols="h,3",width=65%]
 |===
 | Type
-| Abstract class
+| Class
 
 | URI
-| `cim:IdentifiedObject`
+| `cim:Equipment`
 
 
 | CIM standard (perspective)
@@ -22,14 +22,10 @@
 |===
 
 == Class hierarchy
-* *`IdentifiedObject`*
- ** xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
- ** xref::class/BaseVoltage.adoc[`BaseVoltage`]
- ** xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
- ** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
- ** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
- ** xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
- ** xref::class/TransformerEnd.adoc[`TransformerEnd`]
+* xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+*** *`Equipment`*
+ **** xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
 
 
 == Slots
@@ -41,33 +37,40 @@
 |===
 | Name | Type | Description | Inherited from
 
+| <<EquipmentContainer,`EquipmentContainer`>>
+//| [[slots_table.EquipmentContainer]]<<EquipmentContainer,`EquipmentContainer`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Container of this equipment.+++
+| _n/a_
+
 | <<description,`description`>>
 //| [[slots_table.description]]<<description,`description`>>
 | 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
-| _n/a_
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 | <<europeanArticleNumberEAN,`europeanArticleNumberEAN`>>
 //| [[slots_table.europeanArticleNumberEAN]]<<europeanArticleNumberEAN,`europeanArticleNumberEAN`>>
 | 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters...+++
-| _n/a_
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 | <<mRID,`mRID`>>
 //| [[slots_table.mRID]]<<mRID,`mRID`>>
 | 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
-| _n/a_
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
 | 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
-| _n/a_
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
@@ -88,6 +91,9 @@ https://w3id.org/linkml/String[`string`]
 | Type
 | https://w3id.org/linkml/String[`string`]
 
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
 
 |===
 
@@ -95,6 +101,32 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#EquipmentContainer]
+=== `EquipmentContainer`
++++Container of this equipment.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:Equipment.EquipmentContainer`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.EquipmentContainer,&#10548;>>
 --
 ////
 
@@ -113,6 +145,9 @@ https://w3id.org/linkml/String[`string`]
 | 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 
 |===
@@ -141,6 +176,9 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | Type
 | https://w3id.org/linkml/String[`string`]
 
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
 
 |===
 
@@ -166,6 +204,9 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 
 |===

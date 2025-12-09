@@ -86,18 +86,25 @@ BaseVoltage.class: grid
 BoundaryPoint.class: grid
 ConnectivityNode.class: grid
 GeographicalRegion.class: grid
+PowerTransformer.class: grid
+PowerTransformerEnd.class: grid
 SubGeographicalRegion.class: grid
 Substation.class: grid
+Terminal.class: grid
 Voltage.class: grid
 VoltageLevel.class: grid
 
 BaseVoltage -> Voltage: "nominalVoltage"
+ConnectivityNode -> BoundaryPoint: "BoundaryPoint"
+ConnectivityNode -> VoltageLevel: "ConnectivityNodeContainer"
+PowerTransformer -> Substation: "EquipmentContainer"
+PowerTransformerEnd -> PowerTransformer: "PowerTransformer"
+PowerTransformerEnd -> Terminal: "Terminal"
+SubGeographicalRegion -> GeographicalRegion: "Region"
+Substation -> SubGeographicalRegion: "Region"
+Terminal -> ConnectivityNode: "ConnectivityNode"
 VoltageLevel -> BaseVoltage: "BaseVoltage"
 VoltageLevel -> Substation: "Substation"
-Substation -> SubGeographicalRegion: "Region"
-SubGeographicalRegion -> GeographicalRegion: "Region"
-ConnectivityNode -> VoltageLevel: "ConnectivityNodeContainer"
-ConnectivityNode -> BoundaryPoint: "BoundaryPoint"
 ----
 
 This data product requires the use of
@@ -113,4 +120,5 @@ Object Register] for instantiation of its datasets.
 == Additional artifacts
 
 * xref:schema:attachment$schemas/shacl/dp_nbnl_equipment.shacl.ttl[SHACL schema]
-* xref:schema:attachment$examples/jsonld/dp_nbnl_equipment.example.jsonld[Example JSON-LD instance data]
+* xref:schema:attachment$examples/jsonld/dp_nbnl_equipment_hv.example.jsonld[Example High Voltage (HV) JSON-LD instance data]
+* xref:schema:attachment$examples/jsonld/dp_nbnl_equipment_mv.example.jsonld[Example Medium Voltage (MV) JSON-LD instance data]

@@ -26,6 +26,7 @@
 ** *`PowerSystemResource`*
  *** xref::class/BoundaryPoint.adoc[`BoundaryPoint`]
  *** xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
+ *** xref::class/Equipment.adoc[`Equipment`]
 
 
 == Slots
