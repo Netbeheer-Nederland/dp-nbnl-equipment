@@ -22,7 +22,7 @@
   },
   "dcterms:conformsTo": [
     {
-      "@id": "https://modellen.netbeheernederland.nl/nbnl-equipment"
+      "@id": "https://modellen.netbeheernederland.nl/nbnl-equipment/1.0"
     }
   ],
   "dcterms:references": [

@@ -695,7 +695,7 @@
             "type": "object"
         }
     },
-    "$id": "http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment",
+    "$id": "http://modellen.netbeheernederland.nl/nbnl-equipment",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "A geographical region of a power system network model.",
@@ -730,7 +730,7 @@
     "required": [
         "mRID"
     ],
-    "title": "dp-nbnl-equipment",
+    "title": "nbnl-equipment",
     "type": "object",
     "version": "v0.draft"
 }
