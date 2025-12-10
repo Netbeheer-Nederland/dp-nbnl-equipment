@@ -13,7 +13,7 @@
   '@id': urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d
   'dcterms:title': 'TenneT'
 'dcterms:conformsTo':
-  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/1.0
 '@graph':
   - '@id': urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be
     '@type': cim:GeographicalRegion

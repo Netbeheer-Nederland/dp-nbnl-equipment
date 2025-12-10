@@ -1,7 +1,7 @@
-name: dp-nbnl-equipment
+name: nbnl-equipment
 description: Information models for the NBNL Equipment data product.
 title: NBNL Equipment
-id: http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment
+id: http://modellen.netbeheernederland.nl/nbnl-equipment
 imports:
 - linkml:types
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
@@ -15,7 +15,7 @@ prefixes:
   skos: http://www.w3.org/2004/02/skos/core#
   xsd: http://www.w3.org/2001/XMLSchema#
   github: https://github.com/
-default_prefix: http://data.netbeheernederland.nl/data-product/dp-nbnl-equipment/
+default_prefix: http://modellen.netbeheernederland.nl/nbnl-equipment/
 enums:
   UnitMultiplier:
     description: "The unit multipliers defined for the CIM.  When applied to unit\

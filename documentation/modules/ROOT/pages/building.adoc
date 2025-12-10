@@ -8,7 +8,9 @@ datasets.
 CAUTION: Generate your own mRIDs using _UUID4_
 
 All JSON-LD examples below are just that; do **not** reuse mRIDs unless
-retrieved from the NBNL Object Register.
+retrieved from the
+https://netbeheer-nederland.github.io/docs-dev/im-object/latest/object_register.html[NBNL
+Object Register].
 
 == Overview
 
@@ -42,7 +44,7 @@ omit these fields!
 },
 "dcterms:conformsTo": [
   {
-    "@id": "https://modellen.netbeheernederland.nl/nbnl-equipment" <4>
+    "@id": "https://modellen.netbeheernederland.nl/nbnl-equipment/1.0" <4>
   }
 ],
 "dcterms:references": [
@@ -57,7 +59,7 @@ The following information is required:
 1. unique identifier for this dataset. Use a generated UUID;
 2. issuance data, start of the validity period for this dataset;
 3. publisher of the dataset. Use the mRID/name from the _NBNL Object Register_;
-4. schema to validate the dataset against;
+4. schema to validate the dataset against. Verify usage of the correct version;
 5. any datasets this dataset is dependant on. For any non-boundary datasets,
 this is the _@id_ of the boundary dataset referred to.
 
