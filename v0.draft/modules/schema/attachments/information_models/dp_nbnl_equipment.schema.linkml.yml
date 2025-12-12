@@ -439,6 +439,18 @@ classes:
         required: true
         multivalued: false
     class_uri: cim:TransformerEnd
+  EnergyConsumer:
+    description: Generic user of energy - a  point of consumption on the power
+      system model.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: EnergyConnection
+    class_uri: cim:EnergyConsumer
+  EnergyConnection:
+    description: A connection of energy generation or consumption on the power
+      system model.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: ConductingEquipment
+    class_uri: cim:EnergyConnection
   Equipment:
     description: The parts of a power system that are physical devices, electronic
       or mechanical.

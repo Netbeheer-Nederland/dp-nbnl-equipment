@@ -25,6 +25,12 @@
 | xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
 | +++A base class for all objects that may contain connectivity nodes or topological nodes.+++
 
+| xref::class/EnergyConnection.adoc[`EnergyConnection`]
+| +++A connection of energy generation or consumption on the power system model.+++
+
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+| +++Generic user of energy - a  point of consumption on the power system model.+++
+
 | xref::class/Equipment.adoc[`Equipment`]
 | +++The parts of a power system that are physical devices, electronic or mechanical.+++
 

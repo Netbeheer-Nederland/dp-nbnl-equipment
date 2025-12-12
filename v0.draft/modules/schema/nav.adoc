@@ -28,6 +28,14 @@
 
 
 
+*** xref::class/EnergyConnection.adoc[EnergyConnection]
+
+
+
+*** xref::class/EnergyConsumer.adoc[EnergyConsumer]
+
+
+
 *** xref::class/Equipment.adoc[Equipment]
 
 

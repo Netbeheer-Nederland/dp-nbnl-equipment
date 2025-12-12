@@ -1,8 +1,8 @@
-= `ConductingEquipment`
+= `EnergyConsumer`
 :toclevels: 4
 
 
-+++The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.+++
++++Generic user of energy - a  point of consumption on the power system model.+++
 
 
 [cols="h,3",width=65%]
@@ -11,7 +11,7 @@
 | Class
 
 | URI
-| `cim:ConductingEquipment`
+| `cim:EnergyConsumer`
 
 
 | CIM standard (perspective)
@@ -25,9 +25,9 @@
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 ** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
 *** xref::class/Equipment.adoc[`Equipment`]
-**** *`ConductingEquipment`*
- ***** xref::class/EnergyConnection.adoc[`EnergyConnection`]
- ***** xref::class/PowerTransformer.adoc[`PowerTransformer`]
+**** xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
+***** xref::class/EnergyConnection.adoc[`EnergyConnection`]
+****** *`EnergyConsumer`*
 
 
 == Slots
