@@ -89,3 +89,6 @@
   - '@id': urn:uuid:abae232f-ae19-4e69-a2c7-84c4a86b78f3
     '@type': cim:EnergyConsumer
     cim:IdentifiedObject.mRID: abae232f-ae19-4e69-a2c7-84c4a86b78f3
+  - '@id': urn:uuid:9cb3631f-86b6-47b7-992c-3109829a818a
+    '@type': cim:Terminal
+    cim:IdentifiedObject.mRID: 9cb3631f-86b6-47b7-992c-3109829a818a
