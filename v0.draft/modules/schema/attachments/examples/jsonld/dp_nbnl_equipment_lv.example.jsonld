@@ -121,6 +121,40 @@
       "cim:IdentifiedObject.mRID": "8f2b4255-ae8c-41f2-8f0b-02b612339db9"
     },
     {
+      "@id": "urn:uuid:d3469ad5-10db-4fe3-98e7-e5a392dd7e61",
+      "@type": "cim:ActivePowerLimit",
+      "cim:ActivePowerLimit.value": {
+        "@id": "urn:uuid:3001c82b-b6a7-48e4-8244-0508f2aaa59e"
+      },
+      "cim:OperationalLimit.OperationalLimitSet": {
+        "@id": "urn:uuid:260afea3-011c-46f3-8c49-1f4b8c6d5c58"
+      },
+      "cim:IdentifiedObject.description": "Aanwezige transportcapaciteit",
+      "cim:IdentifiedObject.mRID": "d3469ad5-10db-4fe3-98e7-e5a392dd7e61"
+    },
+    {
+      "@id": "urn:uuid:3001c82b-b6a7-48e4-8244-0508f2aaa59e",
+      "@type": "cim:ActivePower",
+      "cim:ActivePower.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:ActivePower.unit": {
+        "@id": "cim:UnitSymbol.W"
+      },
+      "cim:ActivePower.value": {
+        "@value": 630.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:260afea3-011c-46f3-8c49-1f4b8c6d5c58",
+      "@type": "cim:OperationalLimitSet",
+      "cim:OperationalLimitSet.Equipment": {
+        "@id": "urn:uuid:91bcb52e-eae4-42f0-9d31-2eb51511f3f8"
+      },
+      "cim:IdentifiedObject.mRID": "260afea3-011c-46f3-8c49-1f4b8c6d5c58"
+    },
+    {
       "@id": "urn:uuid:abae232f-ae19-4e69-a2c7-84c4a86b78f3",
       "@type": "cim:EnergyConsumer",
       "cim:IdentifiedObject.mRID": "abae232f-ae19-4e69-a2c7-84c4a86b78f3"

@@ -113,6 +113,9 @@ PowerTransformerEnd.class: grid
 Terminal.class: grid
 EnergyConsumer.class: grid
 
+OperationalLimitSet.class: grid
+ActivePowerLimit.class: grid
+
 BaseVoltage -> Voltage: "nominalVoltage"
 ConnectivityNode -> BoundaryPoint: "BoundaryPoint"
 ConnectivityNode -> VoltageLevel: "ConnectivityNode\nContainer"
@@ -124,6 +127,8 @@ Substation -> SubGeographicalRegion: "Region"
 Terminal -> ConnectivityNode: "ConnectivityNode"
 VoltageLevel -> BaseVoltage: "BaseVoltage"
 VoltageLevel -> Substation: "Substation"
+OperationalLimitSet -> PowerTransformer: "Equipment"
+ActivePowerLimit -> OperationalLimitSet: "OperationalLimitSet"
 ----
 
 This data product requires the use of

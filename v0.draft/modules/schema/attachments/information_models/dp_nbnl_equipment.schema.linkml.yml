@@ -544,7 +544,7 @@ classes:
       Equipment:
         description: The equipment to which the limit set applies.
         slot_uri: cim:OperationalLimitSet.Equipment
-        range: Equipment
+        range: PowerTransformer
         required: false
         multivalued: false
       Terminal:

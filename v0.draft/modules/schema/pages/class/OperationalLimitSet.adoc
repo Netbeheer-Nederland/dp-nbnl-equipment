@@ -47,7 +47,7 @@ OperationalLimitSet {
 
 
 
-Equipment {
+PowerTransformer {
   style {
     fill: "#eccfcb"
     shadow: true
@@ -66,7 +66,7 @@ ACDCTerminal {
 
 
 
-OperationalLimitSet -> Equipment: Equipment
+OperationalLimitSet -> PowerTransformer: Equipment
 
 
 OperationalLimitSet -> ACDCTerminal: Terminal
@@ -128,7 +128,7 @@ legend: "" {
 | <<Equipment,`Equipment`>>
 //| [[slots_table.Equipment]]<<Equipment,`Equipment`>>
 | 0..1 +
-xref::class/Equipment.adoc[`Equipment`]
+xref::class/PowerTransformer.adoc[`PowerTransformer`]
 | +++The equipment to which the limit set applies.+++
 | _n/a_
 
@@ -213,7 +213,7 @@ https://w3id.org/linkml/String[`string`]
 | Cardinality
 | 0..1
 | Type
-| xref::class/Equipment.adoc[`Equipment`]
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
 
 
 |===
