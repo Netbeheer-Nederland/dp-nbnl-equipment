@@ -10,6 +10,9 @@
 | xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
 | +++An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.+++
 
+| xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
+| +++Limit on active power flow.+++
+
 | xref::class/BaseVoltage.adoc[`BaseVoltage`]
 | +++Defines a system base voltage which is referenced.+++
 
@@ -42,6 +45,14 @@
 
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 | +++This is a root class to provide common identification for all classes needing identification and naming attributes.+++
+
+| xref::class/OperationalLimit.adoc[`OperationalLimit`]
+| +++A value and normal value associated with a specific kind of limit. 
+The sub class value and normalValue attributes vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  
+If a particular piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short duration without causing damage, but a lesser current can be allowed to flow for a longer duration.+++
+
+| xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+| +++A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.+++
 
 | xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
 | +++A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.+++
@@ -86,6 +97,9 @@ Each PowerTransformerEnd must be contained by a PowerTransformer. Because a Powe
 |===
 | Name | Description
 
+
+| xref::class/ActivePower.adoc[`ActivePower`]
+| +++Product of RMS value of the voltage and the RMS value of the in-phase component of the current.+++
 
 | xref::class/Voltage.adoc[`Voltage`]
 | +++Electrical voltage, can be both AC and DC.+++

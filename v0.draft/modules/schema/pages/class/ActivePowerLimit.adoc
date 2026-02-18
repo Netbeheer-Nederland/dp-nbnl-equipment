@@ -1,11 +1,8 @@
-= `PowerTransformer`
+= `ActivePowerLimit`
 :toclevels: 4
 
 
-+++An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).
-A power transformer may be composed of separate transformer tanks that need not be identical.
-A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.
-The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.+++
++++Limit on active power flow.+++
 
 
 [cols="h,3",width=65%]
@@ -14,7 +11,7 @@ The inherited association ConductingEquipment.BaseVoltage should not be used.  T
 | Class
 
 | URI
-| `cim:PowerTransformer`
+| `cim:ActivePowerLimit`
 
 
 | CIM standard (perspective)
@@ -26,27 +23,113 @@ The inherited association ConductingEquipment.BaseVoltage should not be used.  T
 
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
-** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
-*** xref::class/Equipment.adoc[`Equipment`]
-**** xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
-***** *`PowerTransformer`*
+** xref::class/OperationalLimit.adoc[`OperationalLimit`]
+*** *`ActivePowerLimit`*
 
 
 == Slots
 
 
 
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+ActivePowerLimit {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+
+
+OperationalLimitSet {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+
+
+ActivePowerLimit -> OperationalLimitSet: OperationalLimitSet
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
 
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
 
-| <<EquipmentContainer,`EquipmentContainer`>>
-//| [[slots_table.EquipmentContainer]]<<EquipmentContainer,`EquipmentContainer`>>
-| 0..1 +
-https://w3id.org/linkml/String[`string`]
-| +++Container of this equipment.+++
-| xref::class/Equipment.adoc[`Equipment`]
+| <<value,`value`>>
+//| [[slots_table.value]]<<value,`value`>>
+| 1 +
+xref::class/ActivePower.adoc[`ActivePower`]
+| +++Value of active power limit. The attribute shall be a positive value or zero.+++
+| _n/a_
+
+| <<OperationalLimitSet,`OperationalLimitSet`>>
+//| [[slots_table.OperationalLimitSet]]<<OperationalLimitSet,`OperationalLimitSet`>>
+| 1 +
+xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+| +++The limit set to which the limit values belong.+++
+| xref::class/OperationalLimit.adoc[`OperationalLimit`]
 
 | <<description,`description`>>
 //| [[slots_table.description]]<<description,`description`>>
@@ -105,35 +188,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
---
-////
-
-
-//[discrete]
-[#EquipmentContainer]
-=== `EquipmentContainer`
-+++Container of this equipment.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:Equipment.EquipmentContainer`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/String[`string`]
-
-| Inherited from
-| xref::class/Equipment.adoc[`Equipment`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.EquipmentContainer,&#10548;>>
 --
 ////
 
@@ -226,20 +280,65 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 ////
 
 
+//[discrete]
+[#OperationalLimitSet]
+=== `OperationalLimitSet`
++++The limit set to which the limit values belong.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:OperationalLimit.OperationalLimitSet`
+| Cardinality
+| 1
+| Type
+| xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+
+| Inherited from
+| xref::class/OperationalLimit.adoc[`OperationalLimit`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.OperationalLimitSet,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#value]
+=== `value`
++++Value of active power limit. The attribute shall be a positive value or zero.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:ActivePowerLimit.value`
+| Cardinality
+| 1
+| Type
+| xref::class/ActivePower.adoc[`ActivePower`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.value,&#10548;>>
+--
+////
+
+
 
 
 
 == Used by
 
 
-[cols="1,1",width=65%]
-|===
-| Source class | Slot name
-
-
-
-| xref::class/PowerTransformerEnd.adoc[`PowerTransformerEnd`] | xref::class/PowerTransformerEnd.adoc#PowerTransformer[`PowerTransformer`]
-
-
-|===
-
+This class is not used by any other classes as the range of a slot.

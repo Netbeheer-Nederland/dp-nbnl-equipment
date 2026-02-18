@@ -8,6 +8,10 @@
 
 
 
+*** xref::class/ActivePowerLimit.adoc[ActivePowerLimit]
+
+
+
 *** xref::class/BaseVoltage.adoc[BaseVoltage]
 
 
@@ -49,6 +53,14 @@
 
 
 
+*** xref::class/OperationalLimit.adoc[OperationalLimit]
+
+
+
+*** xref::class/OperationalLimitSet.adoc[OperationalLimitSet]
+
+
+
 *** xref::class/PowerSystemResource.adoc[PowerSystemResource]
 
 
@@ -82,6 +94,7 @@
 
 
 ** CIM data types
+*** xref::class/ActivePower.adoc[ActivePower]
 *** xref::class/Voltage.adoc[Voltage]
 
 

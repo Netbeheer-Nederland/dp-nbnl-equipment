@@ -1,11 +1,8 @@
-= `PowerTransformer`
+= `OperationalLimitSet`
 :toclevels: 4
 
 
-+++An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).
-A power transformer may be composed of separate transformer tanks that need not be identical.
-A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.
-The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.+++
++++A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.+++
 
 
 [cols="h,3",width=65%]
@@ -14,7 +11,7 @@ The inherited association ConductingEquipment.BaseVoltage should not be used.  T
 | Class
 
 | URI
-| `cim:PowerTransformer`
+| `cim:OperationalLimitSet`
 
 
 | CIM standard (perspective)
@@ -26,27 +23,121 @@ The inherited association ConductingEquipment.BaseVoltage should not be used.  T
 
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
-** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
-*** xref::class/Equipment.adoc[`Equipment`]
-**** xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
-***** *`PowerTransformer`*
+** *`OperationalLimitSet`*
 
 
 == Slots
 
 
 
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+OperationalLimitSet {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Equipment {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+ACDCTerminal {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+
+OperationalLimitSet -> Equipment: Equipment
+
+
+OperationalLimitSet -> ACDCTerminal: Terminal
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
 
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
 
-| <<EquipmentContainer,`EquipmentContainer`>>
-//| [[slots_table.EquipmentContainer]]<<EquipmentContainer,`EquipmentContainer`>>
+| <<Equipment,`Equipment`>>
+//| [[slots_table.Equipment]]<<Equipment,`Equipment`>>
 | 0..1 +
-https://w3id.org/linkml/String[`string`]
-| +++Container of this equipment.+++
-| xref::class/Equipment.adoc[`Equipment`]
+xref::class/Equipment.adoc[`Equipment`]
+| +++The equipment to which the limit set applies.+++
+| _n/a_
+
+| <<Terminal,`Terminal`>>
+//| [[slots_table.Terminal]]<<Terminal,`Terminal`>>
+| 0..1 +
+xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+| +++The terminal where the operational limit set apply.+++
+| _n/a_
 
 | <<description,`description`>>
 //| [[slots_table.description]]<<description,`description`>>
@@ -110,21 +201,18 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
-[#EquipmentContainer]
-=== `EquipmentContainer`
-+++Container of this equipment.+++
+[#Equipment]
+=== `Equipment`
++++The equipment to which the limit set applies.+++
 
 
 [cols="h,4",width=65%]
 |===
 | URI
-| `cim:Equipment.EquipmentContainer`
+| `cim:OperationalLimitSet.Equipment`
 | Cardinality
 | 0..1
 | Type
-| https://w3id.org/linkml/String[`string`]
-
-| Inherited from
 | xref::class/Equipment.adoc[`Equipment`]
 
 
@@ -133,7 +221,7 @@ https://w3id.org/linkml/String[`string`]
 ////
 [.text-left]
 --
-<<slots_table.EquipmentContainer,&#10548;>>
+<<slots_table.Equipment,&#10548;>>
 --
 ////
 
@@ -226,6 +314,32 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 ////
 
 
+//[discrete]
+[#Terminal]
+=== `Terminal`
++++The terminal where the operational limit set apply.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:OperationalLimitSet.Terminal`
+| Cardinality
+| 0..1
+| Type
+| xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.Terminal,&#10548;>>
+--
+////
+
+
 
 
 
@@ -238,7 +352,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 
-| xref::class/PowerTransformerEnd.adoc[`PowerTransformerEnd`] | xref::class/PowerTransformerEnd.adoc#PowerTransformer[`PowerTransformer`]
+| xref::class/OperationalLimit.adoc[`OperationalLimit`] | xref::class/OperationalLimit.adoc#OperationalLimitSet[`OperationalLimitSet`]
 
 
 |===

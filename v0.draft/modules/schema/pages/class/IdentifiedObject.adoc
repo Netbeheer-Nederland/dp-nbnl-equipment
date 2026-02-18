@@ -27,6 +27,8 @@
  ** xref::class/BaseVoltage.adoc[`BaseVoltage`]
  ** xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
  ** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+ ** xref::class/OperationalLimit.adoc[`OperationalLimit`]
+ ** xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
  ** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
  ** xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
  ** xref::class/TransformerEnd.adoc[`TransformerEnd`]
@@ -52,7 +54,7 @@ https://w3id.org/linkml/String[`string`]
 //| [[slots_table.europeanArticleNumberEAN]]<<europeanArticleNumberEAN,`europeanArticleNumberEAN`>>
 | 0..1 +
 https://w3id.org/linkml/String[`string`]
-| +++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters...+++
+| +++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters...+++
 | _n/a_
 
 | <<mRID,`mRID`>>
@@ -102,7 +104,7 @@ https://w3id.org/linkml/String[`string`]
 //[discrete]
 [#europeanArticleNumberEAN]
 === `europeanArticleNumberEAN`
-+++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.+++
++++The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.+++
 
 
 [cols="h,4",width=65%]

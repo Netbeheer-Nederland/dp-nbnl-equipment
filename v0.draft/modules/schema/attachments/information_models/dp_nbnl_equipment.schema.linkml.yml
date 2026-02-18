@@ -241,7 +241,7 @@ classes:
         multivalued: false
       europeanArticleNumberEAN:
         description: The attribute is used for an exchange of the EAN code (European
-          Article Number). The length of the string is 16 characters as defined by
+          Article Number). The length of the string is 18 characters as defined by
           the EAN code.
         slot_uri: nl:IdentifiedObject.europeanArticleNumberEAN
         range: string
@@ -473,3 +473,84 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
     class_uri: cim:ACDCTerminal
+  ActivePowerLimit:
+    description: Limit on active power flow.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: OperationalLimit
+    attributes:
+      value:
+        description: Value of active power limit. The attribute shall be a positive
+          value or zero.
+        slot_uri: cim:ActivePowerLimit.value
+        range: ActivePower
+        required: true
+        multivalued: false
+    class_uri: cim:ActivePowerLimit
+  ActivePower:
+    annotations:
+      represents_cim_data_type:
+        tag: represents_cim_data_type
+        value: true
+    description: Product of RMS value of the voltage and the RMS value of the in-phase
+      component of the current.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
+    attributes:
+      multiplier:
+        slot_uri: cim:ActivePower.multiplier
+        range: UnitMultiplier
+        required: true
+        multivalued: false
+      unit:
+        slot_uri: cim:ActivePower.unit
+        range: UnitSymbol
+        required: true
+        multivalued: false
+      value:
+        slot_uri: cim:ActivePower.value
+        range: float
+        required: true
+        multivalued: false
+    class_uri: cim:ActivePower
+  OperationalLimit:
+    description: "A value and normal value associated with a specific kind of limit.\
+      \ \r\nThe sub class value and normalValue attributes vary inversely to the associated\
+      \ OperationalLimitType.acceptableDuration (acceptableDuration for short).  \r\
+      \nIf a particular piece of equipment has multiple operational limits of the\
+      \ same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration\
+      \ shall have the smallest limit value and the limit with the smallest acceptableDuration\
+      \ shall have the largest limit value.  Note: A large current can only be allowed\
+      \ to flow through a piece of equipment for a short duration without causing\
+      \ damage, but a lesser current can be allowed to flow for a longer duration. "
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: IdentifiedObject
+    attributes:
+      OperationalLimitSet:
+        description: The limit set to which the limit values belong.
+        slot_uri: cim:OperationalLimit.OperationalLimitSet
+        range: OperationalLimitSet
+        required: true
+        multivalued: false
+    class_uri: cim:OperationalLimit
+  OperationalLimitSet:
+    description: "A set of limits associated with equipment.  Sets of limits might\
+      \ apply to a specific temperature, or season for example. A set of limits may\
+      \ contain different severities of limit levels that would apply to the same\
+      \ equipment. The set may contain limits of different types such as apparent\
+      \ power and current limits or high and low voltage limits  that are logically\
+      \ applied together as a set.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: IdentifiedObject
+    attributes:
+      Equipment:
+        description: The equipment to which the limit set applies.
+        slot_uri: cim:OperationalLimitSet.Equipment
+        range: Equipment
+        required: false
+        multivalued: false
+      Terminal:
+        description: The terminal where the operational limit set apply.
+        slot_uri: cim:OperationalLimitSet.Terminal
+        range: ACDCTerminal
+        required: false
+        multivalued: false
+    class_uri: cim:OperationalLimitSet

@@ -12,7 +12,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -36,6 +36,74 @@
             "title": "ACDCTerminal",
             "type": "object"
         },
+        "ActivePower": {
+            "additionalProperties": false,
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "properties": {
+                "multiplier": {
+                    "$ref": "#/$defs/UnitMultiplier"
+                },
+                "unit": {
+                    "$ref": "#/$defs/UnitSymbol"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "multiplier",
+                "unit",
+                "value"
+            ],
+            "title": "ActivePower",
+            "type": "object"
+        },
+        "ActivePowerLimit": {
+            "additionalProperties": false,
+            "description": "Limit on active power flow.",
+            "properties": {
+                "OperationalLimitSet": {
+                    "description": "The limit set to which the limit values belong.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value": {
+                    "$ref": "#/$defs/ActivePower",
+                    "description": "Value of active power limit. The attribute shall be a positive value or zero."
+                }
+            },
+            "required": [
+                "value",
+                "OperationalLimitSet",
+                "mRID"
+            ],
+            "title": "ActivePowerLimit",
+            "type": "object"
+        },
         "BaseVoltage": {
             "additionalProperties": false,
             "description": "Defines a system base voltage which is referenced.",
@@ -48,7 +116,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -89,7 +157,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -159,7 +227,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -206,7 +274,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -257,7 +325,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -307,7 +375,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -357,7 +425,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -393,7 +461,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -415,6 +483,97 @@
                 "mRID"
             ],
             "title": "GeographicalRegion",
+            "type": "object"
+        },
+        "OperationalLimit": {
+            "additionalProperties": false,
+            "description": "A value and normal value associated with a specific kind of limit. \r\nThe sub class value and normalValue attributes vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  \r\nIf a particular piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short duration without causing damage, but a lesser current can be allowed to flow for a longer duration.",
+            "properties": {
+                "OperationalLimitSet": {
+                    "description": "The limit set to which the limit values belong.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "OperationalLimitSet",
+                "mRID"
+            ],
+            "title": "OperationalLimit",
+            "type": "object"
+        },
+        "OperationalLimitSet": {
+            "additionalProperties": false,
+            "description": "A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.",
+            "properties": {
+                "Equipment": {
+                    "description": "The equipment to which the limit set applies.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Terminal": {
+                    "description": "The terminal where the operational limit set apply.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "europeanArticleNumberEAN": {
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mRID": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name is any free human readable and possibly non unique text naming the object.\r\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "mRID"
+            ],
+            "title": "OperationalLimitSet",
             "type": "object"
         },
         "PowerTransformer": {
@@ -443,7 +602,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -494,7 +653,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -536,7 +695,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -577,7 +736,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -621,7 +780,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -668,7 +827,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -768,7 +927,7 @@
                     ]
                 },
                 "europeanArticleNumberEAN": {
-                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+                    "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
                     "type": [
                         "string",
                         "null"
@@ -809,7 +968,7 @@
             ]
         },
         "europeanArticleNumberEAN": {
-            "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 16 characters as defined by the EAN code.",
+            "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code.",
             "type": [
                 "string",
                 "null"
