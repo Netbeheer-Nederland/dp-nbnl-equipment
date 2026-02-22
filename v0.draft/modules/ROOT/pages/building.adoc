@@ -28,9 +28,6 @@ system operator specific dataset must be validated together.
 Each dataset requires metadata to keep track of issuer, issuance date, schema
 and dependencies.
 
-WARNING: Metadata is not validated against the SHACL schema, but do **not**
-omit these fields!
-
 [source,json]
 ----
 "@id": "urn:uuid:2d3088c1-2b9a-4cbc-84fa-c0670e0e8ecc", <1>
@@ -65,37 +62,26 @@ this is the _@id_ of the boundary dataset referred to.
 
 == TSO High Voltage (Boundary) Dataset
 
-Each dataset contains a singular cim:GeographicalRegion as its root:
+Each dataset is dependant on the _Object Register_ for the top level instances,
+such as cim:GeographicalRegion and cim:SubGeographicalRegion (_License Area_):
 
 [source,json]
 ----
-{
-  "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
-  "@type": "cim:GeographicalRegion",
-  "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
-  "cim:IdentifiedObject.name": "NL"
-}
+"dcterms:references": [
+  {
+    "@id": "urn:uuid:5bdf9a6d-ef38-4c4d-a6ee-42a9accdec64" <1>
+  }
+]
 ----
 
-Added to the cim:GeographicalRegion is a cim:SubGeographicalRegion, which
-defines the System Operator _License Area_:
+1. Include a refence to the JSON-LD provided by the Object Register
 
-[source,json]
-----
-{
-  "@id": "urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d",
-  "@type": "cim:SubGeographicalRegion",
-  "cim:SubGeographicalRegion.Region": {
-    "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
-  },
-  "cim:IdentifiedObject.mRID": "2128cb2f-9425-4cf7-9462-9fd59e06542d",
-  "cim:IdentifiedObject.name": "TenneT"
-}
-----
+WARNING: Consumers of the dataset need to include the Object Register JSON-LD
+in orden for the dataset to validate
 
-NOTE: Refer to other instances through their @id (cim:IdentifiedObject.mRID)
-
-The License Area is a container for all cim:Substation-s in the dataset:
+The License Area is a container for all cim:Substation-s in the dataset. Use
+the mRID for the License Area from the Object Register, do not add the
+cim:SubGeographicalRegion itself to the dataset:
 
 [source,json]
 ----
@@ -110,7 +96,9 @@ The License Area is a container for all cim:Substation-s in the dataset:
 }
 ----
 
-A cim:Substation is a _HS/MS Hoogspanningsstation_, which acts as a container
+NOTE: Refer to other instances through their @id
+
+A cim:Substation is a _HS/MS-onderstation_, which acts as a container
 for cim:VoltageLevel-s and the eu:BoundaryPoint-s.
 
 === Voltage Level
@@ -118,33 +106,10 @@ for cim:VoltageLevel-s and the eu:BoundaryPoint-s.
 [source,json]
 ----
 {
-  "@id": "urn:uuid:8038196f-375a-4eb1-94dd-5269a856aad3",
-  "@type": "cim:Voltage",
-  "cim:Voltage.multiplier": {
-    "@id": "cim:UnitMultiplier.k"
-  },
-  "cim:Voltage.unit": {
-    "@id": "cim:UnitSymbol.V"
-  },
-  "cim:Voltage.value": {
-    "@value": 150.0,
-    "@type": "xsd:float"
-  }
-},
-{
-  "@id": "urn:uuid:3d2d86e6-be41-4259-a55f-b3ed254b35a9",
-  "@type": "cim:BaseVoltage",
-  "cim:BaseVoltage.nominalVoltage": {
-    "@id": "urn:uuid:8038196f-375a-4eb1-94dd-5269a856aad3"
-  },
-  "cim:IdentifiedObject.mRID": "3d2d86e6-be41-4259-a55f-b3ed254b35a9",
-  "cim:IdentifiedObject.name": "Hoogspanning (150 kV)" <1>
-},
-{
   "@id": "urn:uuid:69e74dbd-b68a-4e2b-8cf7-da98891de6a1",
   "@type": "cim:VoltageLevel",
   "cim:VoltageLevel.BaseVoltage": {
-    "@id": "urn:uuid:3d2d86e6-be41-4259-a55f-b3ed254b35a9"
+    "@id": "urn:uuid:a22b6bf3-33ab-4f82-89c5-0d427625f2da" <1>
   },
   "cim:VoltageLevel.Substation": {
     "@id": "urn:uuid:755de658-5567-4b65-85bd-f6d3cf41d992"
@@ -153,14 +118,15 @@ for cim:VoltageLevel-s and the eu:BoundaryPoint-s.
 }
 ----
 
-NOTE: At the time of writing, transformers, busbars, switches and bays are not
-part of the HV dataset
+NOTE: At the time of writing, transformers, busbars, switches and bays are
+**not** part of the HV dataset
 
 A cim:VoltageLevel has a cim:BaseVoltage (1), specifying the high voltage
-transmission level. cim:BaseVoltage is managed by the _NBNL Object Register_.
-The cim:VoltageLevel is associated with a cim:Substation.  It's common practice
-to add a cim:VoltageLevel for each transformer on the transmission side of the
-cim:Substation.
+transmission level. cim:BaseVoltage is managed by the _NBNL Object Register_,
+so there is no need to seperately add the cim:BaseVoltage and cim:Voltage
+instance. The cim:VoltageLevel is associated with a cim:Substation. It's
+common practice to add a cim:VoltageLevel for each transformer on the
+transmission side of the cim:Substation.
 
 === Boundary Point
 
@@ -193,10 +159,12 @@ Defining a _Boundary Point_ between TSO/DSO is achieved by adding one or more
 cim:ConnectivityNode-s (1) to a specific cim:VoltageLevel (2) and associating
 the cim:ConnectivityNode to a cim:BoundaryPoint (3).
 
-Repeat all steps above to create instances for all net functions in the grid
-and associated where required. For a full example, see
+Repeat all steps above to create instances for all functions in the grid and
+associated where required. For a full example, see
 xref:schema:attachment$examples/jsonld/dp_nbnl_equipment_hv.example.jsonld[Example
-High Voltage (HV) JSON-LD instance data].
+High Voltage (HV) JSON-LD instance data]. Note that the MV example data
+includes a copy of the boundary dataset for validation purposes. Do **not**
+include the boundary dataset for datasets created by a System Operator.
 
 == DSO Medium Voltage (MV) Dataset
 
@@ -205,8 +173,8 @@ cim:PowerTransformer-s and cim:VoltageLevel-s for each distribution
 transformer. Each _Distribution System Operator_ provides a dataset for its own
 License Area, associated to the boundary dataset.
 
-CAUTION: a DSO dataset does not validate against the SHACL, the boundary
-dataset is also required!
+CAUTION: a DSO dataset does not validate stand-alone against the SHACL, the
+boundary dataset is also required!
 
 === Power Transformer
 
@@ -224,8 +192,8 @@ dataset is also required!
 
 Add all cim:PowerTransformer-s (1) on the distribution side of the
 cim:Substation (2) from the boundary dataset. Do not create an instance of the
-cim:Substation from the boundary dataset, rather refer to the mRID defined in
-the boundary dataset for the cim:Substation.
+cim:Substation from the boundary dataset, refer to the mRID defined in the
+boundary dataset for the cim:Substation.
 
 [source,json]
 ----
@@ -290,5 +258,5 @@ a cim:PowerTransformerEnd with a specific cim:VoltageLevel and cim:BaseVoltage.
 For a full example, see
 xref:schema:attachment$examples/jsonld/dp_nbnl_equipment_mv.example.jsonld[Example
 Medium Voltage (MV) JSON-LD instance data]. Note that the MV example data
-includes a copy of the boundary dataset for validation purposes. Do not
-replicate this behaviour for datasets created by a System Operator.
+includes a copy of the boundary dataset for validation purposes. Do **not**
+include the boundary dataset for datasets created by a System Operator.

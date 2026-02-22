@@ -25,22 +25,12 @@
       "@id": "https://modellen.netbeheernederland.nl/nbnl-equipment/1.0"
     }
   ],
+  "dcterms:references": [
+    {
+      "@id": "urn:uuid:5bdf9a6d-ef38-4c4d-a6ee-42a9accdec64"
+    }
+  ],
   "@graph": [
-    {
-      "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
-      "@type": "cim:GeographicalRegion",
-      "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
-      "cim:IdentifiedObject.name": "NL"
-    },
-    {
-      "@id": "urn:uuid:4f74c8e2-adb5-4815-9607-eb00fb6a0d55",
-      "@type": "cim:SubGeographicalRegion",
-      "cim:SubGeographicalRegion.Region": {
-        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
-      },
-      "cim:IdentifiedObject.mRID": "4f74c8e2-adb5-4815-9607-eb00fb6a0d55",
-      "cim:IdentifiedObject.name": "Liander"
-    },
     {
       "@id": "urn:uuid:4b1ce74e-2909-4311-9d12-bc6c12c45006",
       "@type": "cim:Substation",
@@ -77,7 +67,7 @@
       "@id": "urn:uuid:88ed5755-73fd-41e2-ad4b-037dfa274762",
       "@type": "cim:VoltageLevel",
       "cim:VoltageLevel.BaseVoltage": {
-        "@id": "urn:uuid:8430da67-c674-4907-8011-718ca928c6b2"
+        "@id": "urn:uuid:b7482b2f-bcb8-46e9-99b1-e0cd09f3c205"
       },
       "cim:VoltageLevel.Substation": {
         "@id": "urn:uuid:4b1ce74e-2909-4311-9d12-bc6c12c45006"
@@ -163,6 +153,45 @@
       "@id": "urn:uuid:9cb3631f-86b6-47b7-992c-3109829a818a",
       "@type": "cim:Terminal",
       "cim:IdentifiedObject.mRID": "9cb3631f-86b6-47b7-992c-3109829a818a"
+    },
+    {
+      "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "@type": "cim:GeographicalRegion",
+      "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "cim:IdentifiedObject.name": "NL"
+    },
+    {
+      "@id": "urn:uuid:4f74c8e2-adb5-4815-9607-eb00fb6a0d55",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "4f74c8e2-adb5-4815-9607-eb00fb6a0d55",
+      "cim:IdentifiedObject.name": "Liander"
+    },
+    {
+      "@id": "urn:uuid:b7482b2f-bcb8-46e9-99b1-e0cd09f3c205",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:1de33b4b-052e-45cb-acac-8e887fb8af18"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 0.4 kV",
+      "cim:IdentifiedObject.mRID": "b7482b2f-bcb8-46e9-99b1-e0cd09f3c205",
+      "cim:IdentifiedObject.name": "AC-0-4"
+    },
+    {
+      "@id": "urn:uuid:1de33b4b-052e-45cb-acac-8e887fb8af18",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 0.4,
+        "@type": "xsd:float"
+      }
     }
   ]
 }

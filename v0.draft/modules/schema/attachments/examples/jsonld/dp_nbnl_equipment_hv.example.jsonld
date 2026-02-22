@@ -21,22 +21,12 @@
       "@id": "https://modellen.netbeheernederland.nl/nbnl-equipment/1.0"
     }
   ],
+  "dcterms:references": [
+    {
+      "@id": "urn:uuid:5bdf9a6d-ef38-4c4d-a6ee-42a9accdec64"
+    }
+  ],
   "@graph": [
-    {
-      "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
-      "@type": "cim:GeographicalRegion",
-      "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
-      "cim:IdentifiedObject.name": "NL"
-    },
-    {
-      "@id": "urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d",
-      "@type": "cim:SubGeographicalRegion",
-      "cim:SubGeographicalRegion.Region": {
-        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
-      },
-      "cim:IdentifiedObject.mRID": "2128cb2f-9425-4cf7-9462-9fd59e06542d",
-      "cim:IdentifiedObject.name": "TenneT"
-    },
     {
       "@id": "urn:uuid:755de658-5567-4b65-85bd-f6d3cf41d992",
       "@type": "cim:Substation",
@@ -50,35 +40,12 @@
       "@id": "urn:uuid:69e74dbd-b68a-4e2b-8cf7-da98891de6a1",
       "@type": "cim:VoltageLevel",
       "cim:VoltageLevel.BaseVoltage": {
-        "@id": "urn:uuid:3d2d86e6-be41-4259-a55f-b3ed254b35a9"
+        "@id": "urn:uuid:e50ca4bd591d4c30bd6eca3635f70516"
       },
       "cim:VoltageLevel.Substation": {
         "@id": "urn:uuid:755de658-5567-4b65-85bd-f6d3cf41d992"
       },
       "cim:IdentifiedObject.mRID": "69e74dbd-b68a-4e2b-8cf7-da98891de6a1"
-    },
-    {
-      "@id": "urn:uuid:3d2d86e6-be41-4259-a55f-b3ed254b35a9",
-      "@type": "cim:BaseVoltage",
-      "cim:BaseVoltage.nominalVoltage": {
-        "@id": "urn:uuid:8038196f-375a-4eb1-94dd-5269a856aad3"
-      },
-      "cim:IdentifiedObject.mRID": "3d2d86e6-be41-4259-a55f-b3ed254b35a9",
-      "cim:IdentifiedObject.name": "Hoogspanning (150 kV)"
-    },
-    {
-      "@id": "urn:uuid:8038196f-375a-4eb1-94dd-5269a856aad3",
-      "@type": "cim:Voltage",
-      "cim:Voltage.multiplier": {
-        "@id": "cim:UnitMultiplier.k"
-      },
-      "cim:Voltage.unit": {
-        "@id": "cim:UnitSymbol.V"
-      },
-      "cim:Voltage.value": {
-        "@value": 150.0,
-        "@type": "xsd:float"
-      }
     },
     {
       "@id": "urn:uuid:f0c14f64-3aa3-44ae-b858-18d6a75dc72a",
@@ -100,6 +67,45 @@
       "eu:BoundaryPoint.toEndIsoCode": "NL",
       "eu:BoundaryPoint.toEndNameTso": "Liander",
       "cim:IdentifiedObject.mRID": "d39090b1-58aa-446b-9551-4c6188aa7d0f"
+    },
+    {
+      "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "@type": "cim:GeographicalRegion",
+      "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "cim:IdentifiedObject.name": "NL"
+    },
+    {
+      "@id": "urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "2128cb2f-9425-4cf7-9462-9fd59e06542d",
+      "cim:IdentifiedObject.name": "TenneT"
+    },
+    {
+      "@id": "urn:uuid:e50ca4bd591d4c30bd6eca3635f70516",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:a22b6bf3-33ab-4f82-89c5-0d427625f2da"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 150 kV",
+      "cim:IdentifiedObject.mRID": "e50ca4bd591d4c30bd6eca3635f70516",
+      "cim:IdentifiedObject.name": "AC-150"
+    },
+    {
+      "@id": "urn:uuid:a22b6bf3-33ab-4f82-89c5-0d427625f2da",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 150.0,
+        "@type": "xsd:float"
+      }
     }
   ]
 }
