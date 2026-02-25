@@ -412,6 +412,14 @@ classes:
         range: ConnectivityNode
         required: false
         multivalued: false
+      ConductingEquipment:
+        description: The conducting equipment of the terminal. Conducting equipment
+          have  terminals that may be connected to other conducting equipment terminals
+          via connectivity nodes or topological nodes.
+        slot_uri: cim:Terminal.ConductingEquipment
+        range: EnergyConsumer
+        required: false
+        multivalued: false
     class_uri: cim:Terminal
   TransformerEnd:
     description: A conducting connection point of a power transformer. It corresponds

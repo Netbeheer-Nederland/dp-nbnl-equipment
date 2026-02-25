@@ -765,6 +765,13 @@
             "additionalProperties": false,
             "description": "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
             "properties": {
+                "ConductingEquipment": {
+                    "description": "The conducting equipment of the terminal. Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "ConnectivityNode": {
                     "description": "The connectivity node to which this terminal connects with zero impedance.",
                     "type": [

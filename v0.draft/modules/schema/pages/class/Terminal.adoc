@@ -57,8 +57,20 @@ ConnectivityNode {
 
 
 
+EnergyConsumer {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 
 Terminal -> ConnectivityNode: ConnectivityNode
+
+
+Terminal -> EnergyConsumer: ConductingEquipment
 
 
 legend: "" {
@@ -114,6 +126,13 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
+| <<ConductingEquipment,`ConductingEquipment`>>
+//| [[slots_table.ConductingEquipment]]<<ConductingEquipment,`ConductingEquipment`>>
+| 0..1 +
+xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+| +++The conducting equipment of the terminal. Conducting equipment have  terminals that may be connected to other conducting...+++
+| _n/a_
+
 | <<ConnectivityNode,`ConnectivityNode`>>
 //| [[slots_table.ConnectivityNode]]<<ConnectivityNode,`ConnectivityNode`>>
 | 0..1 +
@@ -151,6 +170,32 @@ https://w3id.org/linkml/String[`string`]
 |===
 
 '''
+
+
+//[discrete]
+[#ConductingEquipment]
+=== `ConductingEquipment`
++++The conducting equipment of the terminal. Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:Terminal.ConductingEquipment`
+| Cardinality
+| 0..1
+| Type
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.ConductingEquipment,&#10548;>>
+--
+////
 
 
 //[discrete]
