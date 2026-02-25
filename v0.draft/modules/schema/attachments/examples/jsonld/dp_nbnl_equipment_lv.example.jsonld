@@ -41,29 +41,6 @@
       "cim:IdentifiedObject.name": "Netstation Fictief"
     },
     {
-      "@id": "urn:uuid:dd020232-f2e5-43de-9842-b0d8a154936a",
-      "@type": "cim:Voltage",
-      "cim:Voltage.multiplier": {
-        "@id": "cim:UnitMultiplier.none"
-      },
-      "cim:Voltage.unit": {
-        "@id": "cim:UnitSymbol.V"
-      },
-      "cim:Voltage.value": {
-        "@value": 400.0,
-        "@type": "xsd:float"
-      }
-    },
-    {
-      "@id": "urn:uuid:8430da67-c674-4907-8011-718ca928c6b2",
-      "@type": "cim:BaseVoltage",
-      "cim:BaseVoltage.nominalVoltage": {
-        "@id": "urn:uuid:dd020232-f2e5-43de-9842-b0d8a154936a"
-      },
-      "cim:IdentifiedObject.mRID": "8430da67-c674-4907-8011-718ca928c6b2",
-      "cim:IdentifiedObject.name": "Laagspanning (400 V)"
-    },
-    {
       "@id": "urn:uuid:88ed5755-73fd-41e2-ad4b-037dfa274762",
       "@type": "cim:VoltageLevel",
       "cim:VoltageLevel.BaseVoltage": {
