@@ -83,6 +83,8 @@
     '@type': cim:OperationalLimitSet
     cim:OperationalLimitSet.Equipment:
       '@id': urn:uuid:91bcb52e-eae4-42f0-9d31-2eb51511f3f8
+    cim:OperationalLimitSet.Terminal:
+      '@id': urn:uuid:f0e1f8a2-65b6-4c67-8cc9-bba95247719d
     cim:IdentifiedObject.mRID: 260afea3-011c-46f3-8c49-1f4b8c6d5c58
   # --- EnergyConsumer
   - '@id': urn:uuid:abae232f-ae19-4e69-a2c7-84c4a86b78f3
