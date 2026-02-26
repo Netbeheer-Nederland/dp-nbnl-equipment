@@ -398,6 +398,7 @@ classes:
       or that are conductively connected through terminals.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: Equipment
+    abstract: true
     class_uri: cim:ConductingEquipment
   Terminal:
     description: An AC electrical connection point to a piece of conducting equipment.
@@ -428,6 +429,7 @@ classes:
       to terminal but is not a specialization of ConductingEquipment.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
     is_a: IdentifiedObject
+    abstract: true
     attributes:
       endNumber:
         description: "Number for this transformer end, corresponding to the end's\
@@ -458,12 +460,14 @@ classes:
       system model.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
     is_a: ConductingEquipment
+    abstract: true
     class_uri: cim:EnergyConnection
   Equipment:
     description: The parts of a power system that are physical devices, electronic
       or mechanical.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: PowerSystemResource
+    abstract: true
     attributes:
       EquipmentContainer:
         description: Container of this equipment.
@@ -480,6 +484,7 @@ classes:
       nodes.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
+    abstract: true
     class_uri: cim:ACDCTerminal
   ActivePowerLimit:
     description: Limit on active power flow.
@@ -531,6 +536,7 @@ classes:
       \ damage, but a lesser current can be allowed to flow for a longer duration. "
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
     is_a: IdentifiedObject
+    abstract: true
     attributes:
       OperationalLimitSet:
         description: The limit set to which the limit values belong.
@@ -558,7 +564,7 @@ classes:
       Terminal:
         description: The terminal where the operational limit set apply.
         slot_uri: cim:OperationalLimitSet.Terminal
-        range: ACDCTerminal
+        range: Terminal
         required: false
         multivalued: false
     class_uri: cim:OperationalLimitSet

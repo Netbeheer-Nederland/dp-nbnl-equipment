@@ -8,7 +8,7 @@
 [cols="h,3",width=65%]
 |===
 | Type
-| Class
+| Abstract class
 
 | URI
 | `cim:Equipment`

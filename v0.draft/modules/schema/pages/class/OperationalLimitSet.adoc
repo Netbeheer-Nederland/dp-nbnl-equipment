@@ -56,7 +56,7 @@ PowerTransformer {
 
 
 
-ACDCTerminal {
+Terminal {
   style {
     fill: "#eccfcb"
     shadow: true
@@ -69,7 +69,7 @@ ACDCTerminal {
 OperationalLimitSet -> PowerTransformer: Equipment
 
 
-OperationalLimitSet -> ACDCTerminal: Terminal
+OperationalLimitSet -> Terminal: Terminal
 
 
 legend: "" {
@@ -135,7 +135,7 @@ xref::class/PowerTransformer.adoc[`PowerTransformer`]
 | <<Terminal,`Terminal`>>
 //| [[slots_table.Terminal]]<<Terminal,`Terminal`>>
 | 0..1 +
-xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+xref::class/Terminal.adoc[`Terminal`]
 | +++The terminal where the operational limit set apply.+++
 | _n/a_
 
@@ -327,7 +327,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | Cardinality
 | 0..1
 | Type
-| xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+| xref::class/Terminal.adoc[`Terminal`]
 
 
 |===

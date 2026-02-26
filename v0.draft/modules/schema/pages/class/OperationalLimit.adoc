@@ -10,7 +10,7 @@ If a particular piece of equipment has multiple operational limits of the same k
 [cols="h,3",width=65%]
 |===
 | Type
-| Class
+| Abstract class
 
 | URI
 | `cim:OperationalLimit`
